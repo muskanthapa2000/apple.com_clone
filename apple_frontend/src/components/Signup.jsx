@@ -1,10 +1,11 @@
-import { Heading, FormControl, FormLabel, FormHelperText, FormErrorMessage, Input, Flex, Select, Center, Text, Button, Alert, AlertIcon } from '@chakra-ui/react';
+import { Heading, FormControl, FormLabel, FormHelperText, FormErrorMessage, Input, Flex, Select, Center, Text, Button, Alert, AlertIcon , Checkbox,Box } from '@chakra-ui/react';
 import {route , routes} from 'react-router-dom'
 import Login from './Login';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 
 
 
@@ -185,6 +186,23 @@ const Signup = ()=>{
                 
        </div>
        <br></br>
+       <hr></hr>
+       <br></br>
+       <Box ml = "0">
+       <Checkbox defaultChecked >Annoucements</Checkbox>
+       <Center>
+       <Text  color='gray.500' width='30rem' height="4rem">Receive Apple emails and communications including announcements, marketing, 
+        recommendations and updates about Apple products, services and software.</Text>
+       </Center>
+        <br></br>
+       <Checkbox defaultChecked >Apps, Music, TV and More</Checkbox>
+       <Center>
+       <Text  color='gray.500' width='30rem' height="4rem">Receive Apple emails and communications including new releases, exclusive content, 
+       special offers and marketing, and recommendations for apps, music, movies, TV, books, podcasts, Apple Pay and more.</Text>
+       </Center>
+      
+       </Box>
+   
 
        {showAlert && (
           <Alert status="success">
@@ -193,7 +211,9 @@ const Signup = ()=>{
           </Alert>
         )}
 
-       <Button  h="1.75rem" size="sm" colorScheme="blue" type = "submit">Submit</Button>
+<br></br><br></br><br></br>
+
+       <Button  h="2rem" size="3xl" colorScheme="blue" type = "submit">Continue</Button>
        </form>
     </div>
     
