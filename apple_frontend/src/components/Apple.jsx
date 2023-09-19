@@ -33,7 +33,7 @@ const Apple =()=>{
                 <Text color="white" fontSize={{ base: '3xl', md: '4xl', xl: '6xl' }}fontWeight="bold">Titanium. So strong. So light. So Pro.</Text>
                 <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" color="gray.500">Available from 22.09</Text>
                 <Center>
-                <Box boxSize={{ base: '150px', md: '300px', xl: '450px' }}>
+                <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
                     <Image src='https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-hero-230912_Full-Bleed-Image.jpg.large.jpg' alt='Dan Abramov' 
                     height= "28rem" width= "120rem" />
                     </Box>
@@ -45,7 +45,7 @@ const Apple =()=>{
                 <Text color="black" fontSize={{ base: '3xl', md: '4xl', xl: '6xl' }} fontWeight="bold">New camera. New design. Newphoria</Text>
                 <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" color="gray.500">Available from 22.09</Text>
                 <Center>
-                    <Box boxSize={{ base: '150px', md: '300px', xl: '400px' }}>
+                    <Box boxSize={{ base: '0px', md: '300px', xl: '400px' }}>
                     <Image src='https://static.toiimg.com/thumb/msid-103708487,width-1280,height-720,resizemode-4/.jpg' alt='Dan Abramov' 
                     height= "28rem" width= "120rem" />
                     </Box>
@@ -68,7 +68,7 @@ const Apple =()=>{
                 <Text color="red" fontSize={{ base: '3xl', md: '4xl', xl: '6xl' }} fontWeight="bold">SERIES 9</Text>
                 <Text color="gray.500" fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }}fontWeight="bold" >Smarter. Brighter. Mightier</Text>
                 <Center>
-                    <Box boxSize={{ base: '150px', md: '300px', xl: '450px' }}>
+                    <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
                     <Image src='https://obs.line-scdn.net/0h5uT_4tNtalppJn0I_SkVDVFwZitaQHBTS0MhORguN2tHCi8PVhI5OU1zZ3ZMFisNSUMgP0VzYzgUFClcUA/w644' alt='Dan Abramov' 
                     height= "40rem" width= "120rem" />
                     </Box>
@@ -93,7 +93,7 @@ const Apple =()=>{
                  {/* <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" color="gray.500">Available from 22.09</Text> */}
                  <br></br>
                  <Center>
-                     <Box boxSize={{ base: '50px', md: '150px', xl: '250px' }}>
+                     <Box boxSize={{ base: '0px', md: '150px', xl: '250px' }}>
                      <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWZalqO07hVp0LrgAD7YYfTcPP2Bi4xDkwGXEozij-yfmZy_qbUmE60ZiPaPQuuFa1nEg&usqp=CAU' alt='Dan Abramov' 
                      height= "28rem" width= "120rem" />
                      </Box>
@@ -115,7 +115,7 @@ const Apple =()=>{
                  <Text color="black" fontSize={{ base: '1xl', md: '2xl', xl: '3xl' }} fontWeight="bold">And Apple.</Text>
                  <br></br><br></br>
                  <Center>
-                     <Box boxSize={{ base: '50px', md: '150px', xl: '250px' }}>
+                     <Box boxSize={{ base: '0px', md: '150px', xl: '250px' }}>
                      <Image src='https://rukminim1.flixcart.com/image/450/500/xif0q/smartwatch/t/e/y/-original-imagtcnuq6xsnhhe.jpeg?q=90&crop=false' alt='Dan Abramov' 
                      height= "30rem" width= "150rem" />
                      </Box>
@@ -127,38 +127,38 @@ const Apple =()=>{
            <br></br><br></br>
 
     <Flex  direction={{ base: 'column', md: 'row' }} width="100%"   bgColor="white">
-            <Box width= "100%" bgColor="white" >
+            <Box width= "100%" bgColor="white"  height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }} >
             <Center>
                     <Flex  align="center">
                     <Box boxSize='5rem' marginRight="1rem">
                         <Image src='https://pngimg.com/d/apple_logo_PNG19674.png' alt='Dan Abramov' 
                         height= "5rem" width= "15rem" />
                         </Box>
-                    <Text color="black"fontSize="6xl" fontWeight="bold" >Watch</Text>
+                    <Text color="black"fontSize={{ base: '2xl', md: '4xl', xl: '6xl' }} fontWeight="bold" >Watch</Text>
                     </Flex>
                 </Center>
                  
                  {/* <Text color="black"fontSize="6xl" fontWeight="bold" >Watch</Text> */}
-                 <Text color="red"fontSize="2xl" fontWeight="bold" >SE</Text>
+                 <Text color="red"fontSize={{ base: '1xl', md: '2xl', xl: '4xl' }} fontWeight="bold" >SE</Text>
                  <Text color="black" fontSize="3xl" fontWeight="bold">A great deal to love.</Text>
-                 <Text fontSize="3xl" fontWeight="bold" color="gray.500">Available from 22.09</Text>
+                 <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" color="gray.500">Available from 22.09</Text>
                  <br></br>
                  <Center>
-                     <Box boxSize='sm'>
+                     <Box  boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
                      <Image src='https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MKG83_AV1?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1631655988000' alt='Dan Abramov' 
                      height= "37rem" width= "150rem" />
                      </Box>
                  </Center>
              </Box>
 
-             <Box width= "100%" bgColor="gray.180" height = "50%" >
-                 <Text color="black"fontSize="5xl" fontWeight="bold" >Save on Mac or iPad</Text>
-                 <Text color="black"fontSize="5xl" fontWeight="bold" >for uni.</Text>
-                 <Text color="black"fontSize="2xl"  >Plus get a gift card up to €130.</Text>
-                 <Text color="gray.500" fontSize="3xl" fontWeight="bold">Shop now</Text>
+             <Box width= "100%" bgColor="gray.180" height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }} >
+                 <Text color="black" fontSize={{ base: '2xl', md: '4xl', xl: '6xl' }} fontWeight="bold" >Save on Mac or iPad</Text>
+                 <Text color="black" fontSize={{ base: '1xl', md: '2xl', xl: '4xl' }} fontWeight="bold" >for uni.</Text>
+                 <Text color="black"fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} >Plus get a gift card up to €130.</Text>
+                 <Text color="gray.500" fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold">Shop now</Text>
                  <br></br><br></br>
                  <Center>
-                     <Box boxSize='sm'>
+                     <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
                      <Image src='https://i.makeagif.com/media/4-24-2016/_ZvEfu.gif' alt='Dan Abramov' 
                      height= "30rem" width= "150rem" />
                      </Box>
