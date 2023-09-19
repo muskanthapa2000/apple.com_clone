@@ -3,13 +3,17 @@ import './App.css';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Apple from './components/Apple';
+import { Routes } from 'react-router-dom';
+import AppRoutes from './routes/Routes';
+
 
 function App() {
   return (
     <div className="App">
      {/* <Signup/> */}
-     <Login/>
+     {/* <Login/> */}
      {/* <Apple/> */}
+    <AppRoutes/>
     </div>
   );
 }

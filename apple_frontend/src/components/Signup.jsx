@@ -13,7 +13,7 @@ const Signup = ()=>{
     const [showPassword, setShowPassword] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
-
+    const toast = useToast()
 
     const [data , setData] = useState({
       Fname :"",
@@ -34,17 +34,48 @@ const Signup = ()=>{
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-  
+    
+      // if (
+      //   data.Fname === "" ||
+      //   data.Lname === "" ||
+      //   data.Country === "" ||
+      //   data.Birth === "" ||
+      //   data.Email === "" ||
+      //   data.Pswd === "" ||
+      //   data.ConfirmPswd === "" ||
+      //   data.NoCode === "" ||
+      //   data.Number === ""
+      // ) {
+      //   // If any required field is empty, show an error message and return early
+      //   toast({
+      //     title: "Error",
+      //     description: "Please fill in all required fields.",
+      //     status: "error",
+      //     duration: 5000,
+      //     isClosable: true,
+      //   });
+      //   return;
+      // }
+    
       try {
         const response = await axios.post('http://localhost:8080/signup', data)
-        .then((res)=>{
-            console.log(res.data)
-            setData(data);
-        });
+          .then((res) => {
+            console.log(res.data);
+            // setData(data);
+            navigate("/login");
+            toast({
+              title: 'Account created.',
+              description: "We've created your account for you.",
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            });
+          });
       } catch (error) {
         console.error('Error logging in:', error);
       }
     };
+    
 
     return (
        
@@ -216,7 +247,7 @@ const Signup = ()=>{
 
 <br></br><br></br><br></br>
 
-       <Button  h={{ base: '1rem', md: '3rem' }} fontSize={{ base: 'lg', md: '2xl' }} colorScheme="blue" type = "submit">Continue</Button>
+       <Button  h={{ base: '1rem', md: '3rem' }} fontSize={{ base: 'lg', md: '2xl' }} colorScheme="blue" type = "submit" >Continue</Button>
        </form>
     </div>
     
