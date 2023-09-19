@@ -1,4 +1,4 @@
-import { Heading, FormControl, FormLabel, FormHelperText, FormErrorMessage, Input, Flex, Select, Center, Text, Button, Alert, AlertIcon , Checkbox,Box } from '@chakra-ui/react';
+import { Heading, FormControl, FormLabel, FormHelperText, FormErrorMessage, Input, Flex, Select, Center, Text, Button, Alert, AlertIcon , Checkbox,Box , Stack} from '@chakra-ui/react';
 import {route , routes} from 'react-router-dom'
 import Login from './Login';
 import { Link } from 'react-router-dom';
@@ -75,20 +75,20 @@ const Signup = ()=>{
        
 <hr></hr>
 
-       <div>
+       <Box ml = "20px" mr = "20px">
             
-            <Heading as='h1' size='xl'>Create Your Apple ID </Heading>
+            <Heading as='h1' size={{ base: 'xl', md: '2xl', lg: '3xl' }}>Create Your Apple ID </Heading>
             <br></br>
-            <Text fontSize='2xl' > One Apple ID is all you need to access all Apple services. </Text>
+            <Text fontSize={{ base: 'xl', md: '1xl', lg: '2xl' }} > One Apple ID is all you need to access all Apple services. </Text>
             <br></br>
             <Center>
-            <Flex whiteSpace={0}>
-                <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='text' width='17rem' height="4rem" name = "Fname" onChange={handleChange} placeholder='Enter First Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
+            <Flex whiteSpace={0} flexDir={{ base: 'column', md: 'row' }}>
+                <FormControl style={{ marginRight: { base: '0', md: '1rem' } }}>
+                    <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem" name = "Fname" onChange={handleChange} placeholder='Enter First Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
                 </FormControl>
 
                 <FormControl >
-                 <Input type='text' width='17rem' height="4rem" name = "Lname" onChange={handleChange} placeholder='Enter Last Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
+                 <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem" name = "Lname" onChange={handleChange} placeholder='Enter Last Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
                  </FormControl>
              </Flex>
          </Center>
@@ -99,7 +99,7 @@ const Signup = ()=>{
             
             <Text fontSize='lg' >COUNTRY / REGION</Text>
             <center>
-                <Select height="4rem" width='30rem'  sx={{ fontSize: 'xl' }}  name = "country" onChange={handleChange}>
+                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }}  name = "country" onChange={handleChange}>
                    <option value="India">India</option>
                     <option value="Bangladesh">Bangladesh</option>
                     <option value="Australia">Australia</option>
@@ -125,8 +125,7 @@ const Signup = ()=>{
            
             <br></br>
             <FormControl >
-            {/* <Text fontSize='xl'color='gray.500'>Date Of Birth</Text> */}
-                    <Input type='text' height="4rem" width='30rem' placeholder='Date Of Birth' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "birth" onChange={handleChange} />
+                    <Input type='text' height="4rem" width={{ base: '100%', md: '30rem' }}  placeholder='Date Of Birth' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "birth" onChange={handleChange} />
             </FormControl>
             <br></br>
             <br></br>
@@ -134,24 +133,24 @@ const Signup = ()=>{
             <br></br>
        
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='email' width='30rem' height="4rem" placeholder='name@example.com'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500'  name = "email" onChange={handleChange}/>
-                    <Text color='gray.500' fontSize='xl' >This will be your new Apple ID</Text>
+                    <Input type='email' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='name@example.com'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500'  name = "email" onChange={handleChange}/>
+                    <Text color='gray.500' fontSize={{ base: 'xl', md: 'xl', lg: '2xl' }}  >This will be your new Apple ID</Text>
                 </FormControl>
                 <br></br>
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type={showPassword ? "text" : "password"} width='30rem' height="4rem" placeholder='Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "password" onChange={handleChange} />
+                    <Input type={showPassword ? "text" : "password"} width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "password" onChange={handleChange} />
                 </FormControl>
                 
                 <br></br>
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='password' width='30rem' height="4rem" placeholder='Confirm Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "confirmpassword" onChange={handleChange} />
+                    <Input type='password' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Confirm Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "confirmpassword" onChange={handleChange} />
                 </FormControl>
                 <br></br>
                 <hr></hr>
                 <br></br>
                 <FormControl>
             <center>
-                <Select height="4rem" width='30rem' sx={{ fontSize: 'xl' }}  name = "nocode" onChange={handleChange}>
+                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }}  name = "nocode" onChange={handleChange}>
                     <option value="India">+91 (India)</option>
                     <option value="Bangladesh">+44 (Bangladesh)</option>
                     <option value="Australia">+1 (Australia)</option>
@@ -176,33 +175,37 @@ const Signup = ()=>{
             </FormControl>
             <br></br>
             <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='text' width='30rem' height="4rem" placeholder='Phone Number'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "number" onChange={handleChange}/>
+                    <Input type='text' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Phone Number'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "number" onChange={handleChange}/>
                 </FormControl>
                 <Center>
-                <Text  color='gray.500' width='30rem' height="4rem" >Be sure to enter a phone number you can always access. 
+                <Text  color='gray.500' width={{ base: '100%', md: '30rem' }} height="4rem" >Be sure to enter a phone number you can always access. 
                 It will be used to verify your identity any time you sign in on a new device or web browser. 
                 Messaging or data rates may apply.</Text>
                 </Center>
                 
-       </div>
+       </Box>
        <br></br>
        <hr></hr>
        <br></br>
-       <Box ml = "0">
-       <Checkbox defaultChecked >Annoucements</Checkbox>
-       <Center>
-       <Text  color='gray.500' width='30rem' height="4rem">Receive Apple emails and communications including announcements, marketing, 
-        recommendations and updates about Apple products, services and software.</Text>
-       </Center>
-        <br></br>
-       <Checkbox defaultChecked >Apps, Music, TV and More</Checkbox>
-       <Center>
-       <Text  color='gray.500' width='30rem' height="4rem">Receive Apple emails and communications including new releases, exclusive content, 
-       special offers and marketing, and recommendations for apps, music, movies, TV, books, podcasts, Apple Pay and more.</Text>
-       </Center>
-      
-       </Box>
-   
+                  
+              <Box ml="0">
+                  <Stack spacing={4}>
+                <Center> <Checkbox defaultChecked>Annoucements</Checkbox> </Center>   
+                    <Center>
+                      <Text color='gray.500' width={{ base: '100%', md: '30rem' }} height="4rem">
+                        Receive Apple emails and communications including announcements, marketing, recommendations, and updates about Apple products, services, and software.
+                      </Text>
+                    </Center>
+                    <Center mt = "20px"><Checkbox defaultChecked>Apps, Music, TV and More</Checkbox></Center>
+                    <Center>
+                      <Text color='gray.500' width={{ base: '100%', md: '30rem' }} height="4rem">
+                        Receive Apple emails and communications including new releases, exclusive content, special offers and marketing, and recommendations for apps, music, movies, TV, books, podcasts, Apple Pay, and more.
+                      </Text>
+                    </Center>
+                  </Stack>
+            </Box>
+
+        
 
        {showAlert && (
           <Alert status="success">
@@ -213,7 +216,7 @@ const Signup = ()=>{
 
 <br></br><br></br><br></br>
 
-       <Button  h="2rem" size="3xl" colorScheme="blue" type = "submit">Continue</Button>
+       <Button  h={{ base: '1rem', md: '3rem' }} fontSize={{ base: 'lg', md: '2xl' }} colorScheme="blue" type = "submit">Continue</Button>
        </form>
     </div>
     

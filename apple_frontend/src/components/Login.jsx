@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Heading,
-  FormControl,
+  FormControl,Center,
   Input,
   Flex,
   Text,
@@ -76,26 +76,27 @@ const Login = () => {
           </Flex>
         </Flex>
         <hr></hr>
-        <center>
+        <center  flexDirection="column" alignItems="center">
           <Image
-            boxSize="200px"
-            height="500px"
-            width="300px"
+            boxSize={{ base: '100px', md: '200px' }}
+            height={{ base: '250px', md: '500px' }}
+            width={{ base: '150px', md: '300px' }}
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQedry_ZjBYhqekBGAzjL3uTV--A5KyfBtUNHLzeGQajPWwh6HStS2pCASR7Adx7d89N4&usqp=CAU"
             alt="Apple Logo"
           />
-          <Text fontSize="6xl" fontWeight="bold">
+          <Text  fontSize={{ base: '4xl', md: '6xl' }} fontWeight="bold">
             Apple ID
           </Text>
-          <Text fontSize="2xl" color="gray.500">
+          <Text fontSize={{ base: 'lg', md: '2xl' }} color="gray.500">
             Manage your Apple account
           </Text>
         </center>
         <br></br>
+        <Flex whiteSpace={0} flexDir={{ base: 'column', md: 'row' }}></Flex>
         <FormControl style={{ marginRight: '1rem' }}>
           <Input
             type="text"
-            width="30rem"
+            width={{ base: '100%', md: '30rem' }}
             height="4rem"
             placeholder="Email or Phone no."
             sx={{ '::placeholder': { fontSize: 'xl' } }}
@@ -107,7 +108,7 @@ const Login = () => {
         <FormControl style={{ marginRight: '1rem' }}>
           <Input
             type="password"
-            width="30rem"
+            width={{ base: '100%', md: '30rem' }}
             height="4rem"
             placeholder="Password"
             sx={{ '::placeholder': { fontSize: 'xl' } }}
@@ -116,18 +117,30 @@ const Login = () => {
             onChange={handleChange}
           />
         </FormControl>
+        <Flex/>
         <br></br>
-        <Checkbox defaultChecked fontSize="4xl">
-          Remember me
-        </Checkbox>
+        <Center mt="1rem">
+          <Checkbox defaultChecked fontSize={{ base: '3xl', md: '4xl' }}>
+            Remember me
+          </Checkbox>
+        </Center>
 
-        <Link color="blue.500" textDecoration="underline">
-          <Text fontSize="xl">Forgotten your password?</Text>
-        </Link>
+        <Center mt="1rem">
+          <Link color="blue.500" textDecoration="underline">
+            <Text fontSize={{ base: 'xl', md: '2xl' }}>Forgotten your password?</Text>
+          </Link>
+        </Center>
 
-        <Button mt="1rem" colorScheme="blue" type="submit">
-          Sign In
-        </Button>
+        <Center mt="1rem">
+          <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Sign In
+          </Button>
+        </Center>
       </form>
     </div>
   );

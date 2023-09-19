@@ -75,7 +75,7 @@ const Apple =()=>{
                 </Center>
             </Box>
 
-        <Flex     direction={{ base: 'column', md: 'row' }} width="100%"   bgColor="white">
+        <Flex  direction={{ base: 'column', md: 'row' }} width="100%"   bgColor="white">
             <Box width= "100%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }}  >
             <Center>
                     <Flex  align="center">
