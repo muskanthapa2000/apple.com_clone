@@ -7,9 +7,9 @@ import Apple from './components/Apple';
 function App() {
   return (
     <div className="App">
-     <Signup/>
+     {/* <Signup/> */}
      {/* <Login/> */}
-     {/* <Apple/> */}
+     <Apple/>
     </div>
   );
 }

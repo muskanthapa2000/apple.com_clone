@@ -1,4 +1,4 @@
-import { Heading, Text, Image, Box, Center , Flex} from '@chakra-ui/react';
+import { Heading, Text, Image, Box, Center , Flex, UnorderedList, ListItem} from '@chakra-ui/react';
 import { useEffect , useState } from 'react';
 const Apple =()=>{
 
@@ -27,7 +27,7 @@ const Apple =()=>{
 
     return (
      
-           <Box>
+           <Box >
             <Box width="100%" bgColor="black" height= "40rem" >
                 <Text color="white"fontSize="6xl" fontWeight="bold" >iPhone 15 Pro</Text>
                 <Text color="white" fontSize="4xl" fontWeight="bold">Titanium. So strong. So light. So Pro.</Text>
@@ -152,7 +152,7 @@ const Apple =()=>{
                  </Center>
              </Box>
 
-             <Box width= "100%" bgColor="gray.180" >
+             <Box width= "100%" bgColor="gray.180" height = "50%" >
                  <Text color="black"fontSize="5xl" fontWeight="bold" >Save on Mac or iPad</Text>
                  <Text color="black"fontSize="5xl" fontWeight="bold" >for uni.</Text>
                  <Text color="black"fontSize="2xl"  >Plus get a gift card up to €130.</Text>
@@ -171,15 +171,16 @@ const Apple =()=>{
         <br></br><br></br><br></br>
 
 
-    <Box width="100%" height="20%" >
-        <Image
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex}`}
-          width="100%"
-          height="20%"
-        />
-      </Box>
-      <Box position="relative" width="100%" >
+        <Box  height="700px" width="90%" margin="auto" mt= "50px">
+  <Image
+    src={images[currentIndex]}
+    alt={`Slide ${currentIndex}`}
+    width="100%"
+    height="100%"
+  />
+</Box>
+
+      <Box position="relative" width="90%" margin="auto" >
       <Text color="gray.500" fontSize="xl">1.Qualified Purchasers receive an Apple Gift Card when they purchase an eligible Mac or iPad at a Qualifying Location.
          Only one Promotion Product per eligible Mac or eligible iPad per Qualified Purchaser. Offer subject to availability. While stocks last.</Text>
          <Text color="gray.500" fontSize="xl" >2.Trade-in values will vary based on the condition, year and configuration of your eligible trade-in device. Not all devices are eligible for credit.
