@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Apple from './components/Apple';
 import { Routes } from 'react-router-dom';
 import AppRoutes from './routes/Routes';
+import PhoneNavbar from './components/PhoneNavbar';
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
      {/* <Signup/> */}
      {/* <Login/> */}
      {/* <Apple/> */}
-    <AppRoutes/>
+    {/* <AppRoutes/> */}
+    <PhoneNavbar/>
     </div>
   );
 }
