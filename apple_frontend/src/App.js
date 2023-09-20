@@ -17,7 +17,7 @@ function App() {
      {/* <Signup/> */}
      {/* <Login/> */}
      {/* <Apple/> */}
-    {/* <AppRoutes/> */}
+    <AppRoutes/>
     {/* <PhoneNavbar/> */}
     {/* <Phone14/> */}
     {/* <Phone15/> */}
