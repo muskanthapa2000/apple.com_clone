@@ -13,9 +13,11 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 
 const Login = () => {
   const navigate = useNavigate();
+  const toast = useToast()
 
   const [data, setData] = useState({
     email: '',
@@ -26,29 +28,74 @@ const Login = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post('http://localhost:8080/login', data)
+  //     .then((res)=>{
+  //         console.log(res.data)
+  //         setData(data);
+       
+  //        alert("signup  ")
+  //     });
+  //   } catch (error) {
+  //     console.error('Error logging in:', error);
+    
+  //   alert("signup first ")
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post('http://localhost:8080/login', data)
-      .then((res)=>{
-          console.log(res.data)
-          setData(data);
-          <Alert status='info'>
-          <AlertIcon />
-          Login Suggessful
-        </Alert>
-         alert("signup  ")
-      });
+      const response = await axios.post('http://localhost:8080/login', data);
+  
+      if (response.status === 200) {
+        // Login successful
+        console.log(response.data);
+  
+        // Update data if needed
+        setData({ ...data, email: '', password: '' });
+  
+        // Display success message
+        toast({
+          title: "Success",
+          description: "Login successful",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      } else {
+        // Handle other response statuses if needed
+        console.error('Unexpected response status:', response.status);
+  
+        // Display an error message
+        toast({
+          title: "Error",
+          description: "An error occurred during login. Please try again later.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      }
     } catch (error) {
       console.error('Error logging in:', error);
-      <Alert status='error'>
-      <AlertIcon />
-      Signup First
-    </Alert>
-    alert("signup first ")
+  
+      // Display an error message
+      toast({
+        title: "Error",
+        description: "An error occurred during login. Please try again later.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     }
   };
+
+
 
   return (
     <div>

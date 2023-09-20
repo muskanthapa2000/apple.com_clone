@@ -32,6 +32,76 @@ const Signup = ()=>{
     };
 
 
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+    
+    //   if (
+    //     data.Fname === "" ||
+    //     data.Lname === "" 
+    //     // data.Country === "" 
+    //     // data.Birth === "" 
+    //     // data.Email === "" 
+    //     // data.Pswd === "" 
+    //     // data.ConfirmPswd === "" 
+    //     // data.NoCode === "" ||
+    //     // data.Number === ""
+    //   ) {
+    //     toast({
+    //       title: "Error",
+    //       description: "Please fill in all required fields.",
+    //       status: "error",
+    //       duration: 3000,
+    //       isClosable: true,
+    //     });
+    //     return;
+    //   }
+    
+    //   try {
+    //     const response = await axios.post('http://localhost:8080/signup', data);
+    
+    //     if (response.status === 201) {
+    //       // Registration successful
+    //       setShowAlert(true);
+    //       toast({
+    //         title: "Success",
+    //         description: "User registered successfully.",
+    //         status: "success",
+    //         duration: 5000,
+    //         isClosable: true,
+    //       });
+    //       navigate("/login");
+    //     } else if (response.status === 200) {
+    //       // Email already exists
+    //       toast({
+    //         title: "Error",
+    //         description: "Email address already exists. Please use another one.",
+    //         status: "error",
+    //         duration: 5000,
+    //         isClosable: true,
+    //       });
+    //     } else {
+    //       // Handle other response statuses if needed
+    //       console.error('Unexpected response status:', response.status);
+    //       toast({
+    //         title: "Error",
+    //         description: "An error occurred while registering. Please try again later.",
+    //         status: "error",
+    //         duration: 5000,
+    //         isClosable: true,
+    //       });
+    //     }
+    //   } catch (error) {
+    //     console.error('Error registering user:', error);
+    //     toast({
+    //       title: "Error",
+    //       description: "An error occurred while registering. Please try again later.",
+    //       status: "error",
+    //       duration: 5000,
+    //       isClosable: true,
+    //     });
+    //   }
+    // };
+
     const handleSubmit = async (e) => {
       e.preventDefault();
     
@@ -75,6 +145,8 @@ const Signup = ()=>{
         console.error('Error logging in:', error);
       }
     };
+    
+    
     
 
     return (
