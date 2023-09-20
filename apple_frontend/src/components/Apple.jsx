@@ -170,17 +170,17 @@ const Apple =()=>{
         <br></br><br></br><br></br>
 
 
-        <Box   height={{ base: '300px', md: '400px', xl: '600px' }}
+<Box   height={{ base: '300px', md: '400px', xl: '600px' }}
         width="90%"
         margin="auto"
         mt="50px">
-  <Image
-    src={images[currentIndex]}
-    alt={`Slide ${currentIndex}`}
-    width="100%"
-    height="100%"
-    fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
-  />
+    <Image
+        src={images[currentIndex]}
+        alt={`Slide ${currentIndex}`}
+        width="100%"
+        height="100%"
+        fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
+    />
 </Box>
 
       <Box position="relative" width="90%" margin="auto" fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}>

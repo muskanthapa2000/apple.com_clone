@@ -6,6 +6,7 @@ import Apple from './components/Apple';
 import { Routes } from 'react-router-dom';
 import AppRoutes from './routes/Routes';
 import PhoneNavbar from './components/PhoneNavbar';
+import Phone14 from './components/Phone14';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
      {/* <Login/> */}
      {/* <Apple/> */}
     {/* <AppRoutes/> */}
-    <PhoneNavbar/>
+    {/* <PhoneNavbar/> */}
+    <Phone14/>
     </div>
   );
 }

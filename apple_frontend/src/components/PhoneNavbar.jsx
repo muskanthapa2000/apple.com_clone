@@ -72,7 +72,7 @@ const PhoneNavbar = () => {
 
             <Grid>
                     <Box mt="55" ml = "6">
-                    <Center> <Image src='https://static.vecteezy.com/system/resources/thumbnails/000/583/708/small/shop.jpg' alt='Dan Abramov' height="50px" width="90px" /></Center>
+                    <Center> <Image src='https://static.vecteezy.com/system/resources/thumbnails/000/583/708/small/shop.jpg' alt='Dan Abramov' height="50px" width="80px" /></Center>
                     <Text ml= "0" >Shop iPhone</Text>
                     </Box>
             </Grid>
