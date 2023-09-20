@@ -112,7 +112,7 @@ const Phone14 = () => {
                            <Flex>
                            <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }} mt = "0">
                     <Image src='https://i-smart.by/image/catalog/iphone14/2d07bad4078a55691c31650d909ab24f.jpeg' alt='Dan Abramov' 
-                    height= "18rem" width= "100rem" /><Center>
+                    height= "19rem" width= "100rem" /><Center>
                         <Text fontSize="2xl" color="black" fontWeight="bold" >iPhone 14</Text>
                     </Center>
                     </Box>
@@ -255,7 +255,7 @@ const Phone14 = () => {
 
                 <Link>
                 <Box  boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
-                        <Image src='https://assets.stickpng.com/images/61d2f85b92b57c0004c64745.png' alt='Dan Abramov' 
+                        <Image src='https://media.ldlc.com/r1600/ld/products/00/05/93/86/LD0005938604_1.jpg' alt='Dan Abramov' 
                         height= "30rem" width= "80%" />
                        <Center> <Text fontSize="4xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 13</Text></Center>
                         <Center> <Text fontSize="xl">A total powerhouse.</Text></Center>
