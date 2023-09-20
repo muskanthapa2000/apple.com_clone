@@ -36,6 +36,7 @@ const Login = () => {
   //     .then((res)=>{
   //         console.log(res.data)
   //         setData(data);
+  //        navigate("/")
        
   //        alert("signup  ")
   //     });
