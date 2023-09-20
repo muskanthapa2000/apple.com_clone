@@ -21,7 +21,7 @@ function App() {
     {/* <PhoneNavbar/> */}
     {/* <Phone14/> */}
     {/* <Phone15/> */}
-    <Phone15PreOrder/>
+    {/* <Phone15PreOrder/> */}
     </div>
   );
 }
