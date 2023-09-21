@@ -28,7 +28,7 @@ const Phone14 = () => {
       const [data , setData] = useState([]);    // for fetch data
       const [buttonClick , setButtonClick] = useState(false); // to choose phn (iphone 14 , iphone 14 plus)
       const [gb , setGb] = useState("");   // select phone according to the storage 
-      const [defaultPictureVisible, setDefaultPictureVisible] = useState(true);
+      const [defaultPictureVisible, setDefaultPictureVisible] = useState(true); 
       const [order, setOrder] = useState(
         'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-plus-purple-witb-202209?wid=186&hei=392&fmt=jpeg&qlt=95&.v=1660679147102'
       );
@@ -81,7 +81,7 @@ const Phone14 = () => {
             </Text>
 
 
-  {/* ................................SECONF MAIN BOX....................................... */}
+  {/* ................................SECOND MAIN BOX....................................... */}
          <Box mr = "0">
             <Flex>
 
