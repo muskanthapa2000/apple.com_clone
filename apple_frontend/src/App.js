@@ -6,9 +6,9 @@ import Apple from './components/Apple';
 import { Routes } from 'react-router-dom';
 import AppRoutes from './routes/Routes';
 import PhoneNavbar from './components/PhoneNavbar';
-import Phone14 from './components/Phone14';
-import Phone15 from './components/Phone15';
-import Phone15PreOrder from './components/Phone15PreOrder';
+import Phone14 from './components/phone/Phone14';
+import Phone15 from './components/phone/Phone15';
+import Phone15PreOrder from './components/phone/Phone15PreOrder';
 
 
 function App() {

@@ -28,24 +28,6 @@ const Login = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await axios.post('http://localhost:8080/login', data)
-  //     .then((res)=>{
-  //         console.log(res.data)
-  //         setData(data);
-  //        navigate("/")
-       
-  //        alert("signup  ")
-  //     });
-  //   } catch (error) {
-  //     console.error('Error logging in:', error);
-    
-  //   alert("signup first ")
-  //   }
-  // };
 
 
   const handleSubmit = async (e) => {

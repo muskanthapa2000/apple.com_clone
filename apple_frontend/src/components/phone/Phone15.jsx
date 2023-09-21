@@ -20,7 +20,7 @@ const Phone15 = ()=>{
           setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
           );
-        }, 2000); // Change slide every 1 second
+        }, 1000); // Change slide every 1 second
     
         return () => {
           clearInterval(interval);

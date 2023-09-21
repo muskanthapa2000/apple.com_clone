@@ -1,4 +1,5 @@
 import { Image, Box, Text, Grid, Flex, Center, useMediaQuery } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const PhoneNavbar = () => {
   const [isLargerThan768, isLargerThan600] = useMediaQuery([
@@ -13,6 +14,7 @@ const PhoneNavbar = () => {
       flexWrap={isLargerThan600 ? "wrap" : "nowrap"}
     >
       <Grid>
+        <Link to ="/iphone15">
         <Box ml={isLargerThan768 ? "0" : "10"} mt={isLargerThan768 ? "0" : "50"}>
           <Image
             src='https://www.rinogear.com/cdn/shop/collections/RN_Re-create_Website_Icons_7.jpg?v=1676564569'
@@ -22,9 +24,11 @@ const PhoneNavbar = () => {
           />
           <Text fontSize="sm"  ml="0">iPhone 15</Text>
         </Box>
-      </Grid>
+       </Link>
+     </Grid>
 
       <Grid>
+        <Link to ="/iphone14">
         <Box ml={isLargerThan768 ? "0" : "10"} mt={isLargerThan768 ? "0" : "50"}>
           <Image
             src='https://www.pngmart.com/files/22/iPhone-14-PNG-Picture.png'
@@ -34,6 +38,7 @@ const PhoneNavbar = () => {
           />
           <Text  fontSize="sm"  ml="0">iPhone 14</Text>
         </Box>
+        </Link>
       </Grid>
 
       <Grid>

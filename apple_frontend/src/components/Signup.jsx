@@ -32,101 +32,31 @@ const Signup = ()=>{
     };
 
 
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-    
-    //   if (
-    //     data.Fname === "" ||
-    //     data.Lname === "" 
-    //     // data.Country === "" 
-    //     // data.Birth === "" 
-    //     // data.Email === "" 
-    //     // data.Pswd === "" 
-    //     // data.ConfirmPswd === "" 
-    //     // data.NoCode === "" ||
-    //     // data.Number === ""
-    //   ) {
-    //     toast({
-    //       title: "Error",
-    //       description: "Please fill in all required fields.",
-    //       status: "error",
-    //       duration: 3000,
-    //       isClosable: true,
-    //     });
-    //     return;
-    //   }
-    
-    //   try {
-    //     const response = await axios.post('http://localhost:8080/signup', data);
-    
-    //     if (response.status === 201) {
-    //       // Registration successful
-    //       setShowAlert(true);
-    //       toast({
-    //         title: "Success",
-    //         description: "User registered successfully.",
-    //         status: "success",
-    //         duration: 5000,
-    //         isClosable: true,
-    //       });
-    //       navigate("/login");
-    //     } else if (response.status === 200) {
-    //       // Email already exists
-    //       toast({
-    //         title: "Error",
-    //         description: "Email address already exists. Please use another one.",
-    //         status: "error",
-    //         duration: 5000,
-    //         isClosable: true,
-    //       });
-    //     } else {
-    //       // Handle other response statuses if needed
-    //       console.error('Unexpected response status:', response.status);
-    //       toast({
-    //         title: "Error",
-    //         description: "An error occurred while registering. Please try again later.",
-    //         status: "error",
-    //         duration: 5000,
-    //         isClosable: true,
-    //       });
-    //     }
-    //   } catch (error) {
-    //     console.error('Error registering user:', error);
-    //     toast({
-    //       title: "Error",
-    //       description: "An error occurred while registering. Please try again later.",
-    //       status: "error",
-    //       duration: 5000,
-    //       isClosable: true,
-    //     });
-    //   }
-    // };
-
     const handleSubmit = async (e) => {
       e.preventDefault();
     
-      if (
-        data.Fname === "" ||
-        data.Lname === ""
-        //  data.Country === "" || 
-        // data.Birth === "" ||
-        // data.Email === "" ||
-        // data.Pswd === "" ||
-        // data.ConfirmPswd === "" ||
-        // data.NoCode === "" ||
-        // data.Number === "" 
-        // Add checks for other required fields here
-      ) {
-        // If any required field is empty, show an error message and return early
-        toast({
-          title: "Error",
-          description: "Please fill in all required fields.",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-        return;
-      }
+      // if (
+      //   data.Fname === "" ||
+      //   data.Lname === "" ||
+      //    data.Country === "" || 
+      //   data.Birth === "" ||
+      //   data.Email === "" ||
+      //   data.Pswd === "" ||
+      //   data.ConfirmPswd === "" ||
+      //   data.NoCode === "" ||
+      //   data.Number === "" 
+      //   // Add checks for other required fields here
+      // ) {
+      //   // If any required field is empty, show an error message and return early
+      //   toast({
+      //     title: "Error",
+      //     description: "Please fill in all required fields.",
+      //     status: "error",
+      //     duration: 5000,
+      //     isClosable: true,
+      //   });
+      //   return;
+      // }
     
       try {
         const response = await axios.post('http://localhost:8080/signup', data);
@@ -226,11 +156,11 @@ const Signup = ()=>{
             <Center>
             <Flex whiteSpace={0} flexDir={{ base: 'column', md: 'row' }}>
                 <FormControl style={{ marginRight: { base: '0', md: '1rem' } }}>
-                    <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem" name = "Fname" onChange={handleChange} placeholder='Enter First Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
+                    <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem"  required = "true" name = "Fname" onChange={handleChange} placeholder='Enter First Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
                 </FormControl>
 
                 <FormControl >
-                 <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem" name = "Lname" onChange={handleChange} placeholder='Enter Last Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
+                 <Input type='text' width={{ base: '100%', md: '17rem' }} height="4rem"  required = "true" name = "Lname" onChange={handleChange} placeholder='Enter Last Name' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' />
                  </FormControl>
              </Flex>
          </Center>
@@ -241,7 +171,7 @@ const Signup = ()=>{
             
             <Text fontSize='lg' >COUNTRY / REGION</Text>
             <center>
-                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }}  name = "country" onChange={handleChange}>
+                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }} required = "true"  name = "country" onChange={handleChange}>
                    <option value="India">India</option>
                     <option value="Bangladesh">Bangladesh</option>
                     <option value="Australia">Australia</option>
@@ -267,7 +197,7 @@ const Signup = ()=>{
            
             <br></br>
             <FormControl >
-                    <Input type='text' height="4rem" width={{ base: '100%', md: '30rem' }}  placeholder='Date Of Birth' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "birth" onChange={handleChange} />
+                    <Input type='text' height="4rem" width={{ base: '100%', md: '30rem' }} required = "true"  placeholder='Date Of Birth' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "birth" onChange={handleChange} />
             </FormControl>
             <br></br>
             <br></br>
@@ -275,24 +205,24 @@ const Signup = ()=>{
             <br></br>
        
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='email' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='name@example.com'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500'  name = "email" onChange={handleChange}/>
+                    <Input type='email' width={{ base: '100%', md: '30rem' }} required = "true" height="4rem" placeholder='name@example.com'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500'  name = "email" onChange={handleChange}/>
                     <Text color='gray.500' fontSize={{ base: 'xl', md: 'xl', lg: '2xl' }}  >This will be your new Apple ID</Text>
                 </FormControl>
                 <br></br>
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type={showPassword ? "text" : "password"} width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "password" onChange={handleChange} />
+                    <Input type={showPassword ? "text" : "password"} width={{ base: '100%', md: '30rem' }} required = "true" height="4rem" placeholder='Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "password" onChange={handleChange} />
                 </FormControl>
                 
                 <br></br>
                 <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='password' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Confirm Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "confirmpassword" onChange={handleChange} />
+                    <Input type='password' width={{ base: '100%', md: '30rem' }}  height="4rem" required = "true" placeholder='Confirm Password' sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "confirmpassword" onChange={handleChange} />
                 </FormControl>
                 <br></br>
                 <hr></hr>
                 <br></br>
                 <FormControl>
             <center>
-                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }}  name = "nocode" onChange={handleChange}>
+                <Select height="4rem" width={{ base: '100%', md: '30rem' }} sx={{ fontSize: 'xl' }}  name = "nocode" onChange={handleChange} required = "true">
                     <option value="India">+91 (India)</option>
                     <option value="Bangladesh">+44 (Bangladesh)</option>
                     <option value="Australia">+1 (Australia)</option>
@@ -317,7 +247,7 @@ const Signup = ()=>{
             </FormControl>
             <br></br>
             <FormControl style={{ marginRight: '1rem' }}>
-                    <Input type='text' width={{ base: '100%', md: '30rem' }}  height="4rem" placeholder='Phone Number'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "number" onChange={handleChange}/>
+                    <Input type='text' width={{ base: '100%', md: '30rem' }} required = "true" height="4rem" placeholder='Phone Number'  sx={{ '::placeholder': { fontSize: 'xl' } }} color='blue.500' name = "number" onChange={handleChange}/>
                 </FormControl>
                 <Center>
                 <Text  color='gray.500' width={{ base: '100%', md: '30rem' }} height="4rem" >Be sure to enter a phone number you can always access. 

@@ -23,20 +23,23 @@ const Phone14 = () => {
     
       const [currentIndex, setCurrentIndex] = useState(0);
       const { isOpen, onOpen, onClose } = useDisclosure();
-      const [model , setModel] = useState("");
-      const [color , setColor] = useState("");
-      const [data , setData] = useState("");
+    //   const [model , setModel] = useState("");
+    //   const [color , setColor] = useState("");
+      const [data , setData] = useState([]);
 
 
-      const fetchData = ()=>{
-        axios.get("http://localhost:8080/iphone14").
-        then((res)=>{
+      const fetchData = () => {
+        axios.get('http://localhost:8080/iphone14/650bf71d420d5b3eb4a7fa23')
+          .then((res) => {
             console.log(res.data);
-            setData(res.data)
-        }).catch((err)=>{
+            setData(res.data);
+            console.log(res.data);
+          })
+          .catch((err) => {
             console.log(err);
-        })
-      }
+          });
+      };
+      console.log(data);
     
       useEffect(() => {
         fetchData();
@@ -89,12 +92,14 @@ const Phone14 = () => {
 
  {/* .........................................BOX TO DISPLAY ACTUAL BOOKING ............................. */}
 
-                    {/* <Box>
-                        
-                    <Image src={model} alt='Dan Abramov' 
-                    height= "19rem" width= "100rem" />
+ <Box>
+        {data.map((e) => (
+          <div key={e._id}>
+            <img src={e.iPhone14} alt="Dan Abramov" height="19rem" width="100rem" />
+          </div>
+        ))}
+      </Box>
 
-                    </Box> */}
                 </Box>
  {/* ...................................BOX FOR RIGHT SIDE BUTTONS....................................... */}
 
@@ -199,11 +204,11 @@ const Phone14 = () => {
                 </Flex>
                 <Text fontSize="2xl" color="black"  mr="2" mt="2"> Color </Text>
                 <Flex>
-                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://e0.pxfuel.com/wallpapers/897/983/desktop-wallpaper-beautiful-fall-color-palette-iphone-pastel-blue.jpg'alt='blue'/></Button>
-                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/750x1334/750x1334-light-pastel-purple-solid-color-background.jpg'alt='pirple'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/950x350/950x350-sea-blue-solid-color-background.jpg'alt='blue'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://wallpaperset.com/w/full/5/e/0/123056.jpg'alt='pirple'/></Button>
                     <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/premium-photo/yellow-cardboard-background-flat-lay-top-view_164357-2985.jpg?w=360'alt='yelllow'/></Button>
-                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://i.pinimg.com/1200x/37/c8/18/37c818a87f0eba853ee08923941e5354.jpg'alt='black'/></Button>
-                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/free-vector/digital-technology-background-with-abstract-wave-border_53876-117508.jpg'alt='white'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQftw-x5JHk9XgBiARCbF0YkfT4iIeLphRTZ-MqT67eAx-5N0wzY9K7VE1YxnPhm3jPog4&usqp=CAU'alt='black'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://png.pngtree.com/background/20210714/original/pngtree-off-white-solid-color-background-picture-image_1204491.jpg'alt='white'/></Button>
                     <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBoiPHdLN5R7yPPwJStPn9PlYEgtpOLKgis-jgd-N7C7rKPDS8RS3_tIkhVM9x4JcNU0&usqp=CAU'alt='yelllow'/></Button>
                 </Flex>
 
