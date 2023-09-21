@@ -21,7 +21,9 @@ const Phone14 = () => {
       ];
     
       const [currentIndex, setCurrentIndex] = useState(0);
-      const { isOpen, onOpen, onClose } = useDisclosure()
+      const { isOpen, onOpen, onClose } = useDisclosure();
+      const [model , setModel] = useState("");
+      const [color , setColor] = useState("");
     
       useEffect(() => {
         const interval = setInterval(() => {
@@ -63,6 +65,13 @@ const Phone14 = () => {
                         fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
                     />
                     </Box>
+
+                    {/* <Box>
+                        
+                    <Image src={model} alt='Dan Abramov' 
+                    height= "19rem" width= "100rem" />
+
+                    </Box> */}
                 </Box>
 
                 <Box width = "30%">
@@ -70,7 +79,9 @@ const Phone14 = () => {
                     <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">    Model.   </Text>
                     <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1">  Which is best for you? </Text>
                     </Flex>
-                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} >       
+                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} 
+                // onClick={()=>setModel("https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1676506021673")}
+                 >       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
                             <Box textAlign="left">
                                 <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">iPhone 14</Text>
