@@ -6,6 +6,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
     ModalBody,useDisclosure ,
     ModalCloseButton,
     Center,} from "@chakra-ui/react";
+import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 
@@ -24,8 +25,21 @@ const Phone14 = () => {
       const { isOpen, onOpen, onClose } = useDisclosure();
       const [model , setModel] = useState("");
       const [color , setColor] = useState("");
+      const [data , setData] = useState("");
+
+
+      const fetchData = ()=>{
+        axios.get("http://localhost:8080/iphone14").
+        then((res)=>{
+            console.log(res.data);
+            setData(res.data)
+        }).catch((err)=>{
+            console.log(err);
+        })
+      }
     
       useEffect(() => {
+        fetchData();
         const interval = setInterval(() => {
           setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -39,6 +53,8 @@ const Phone14 = () => {
 
 
     return (
+
+        // .................................MAIN BOX .......................................
         <Box textAlign="left" ml = "20" mr = "20">
             <Heading as="h1" size="2xl" mr="2">
                 Buy iPhone 14
@@ -47,8 +63,13 @@ const Phone14 = () => {
                 From $799 or $33.29/mo. for 24 mo. 
             </Text>
 
+
+  {/* ................................SECONF MAIN BOX....................................... */}
          <Box mr = "0">
             <Flex>
+
+
+ {/* .>..................................LEFT SIDE IMAGE BOX.................................  */}
             <Box width="70%" borderRadius="2xl">
                     <Box   height={{ base: '300px', md: '400px', xl: '600px' }}
                         width="90%"
@@ -66,6 +87,8 @@ const Phone14 = () => {
                     />
                     </Box>
 
+ {/* .........................................BOX TO DISPLAY ACTUAL BOOKING ............................. */}
+
                     {/* <Box>
                         
                     <Image src={model} alt='Dan Abramov' 
@@ -73,12 +96,15 @@ const Phone14 = () => {
 
                     </Box> */}
                 </Box>
+ {/* ...................................BOX FOR RIGHT SIDE BUTTONS....................................... */}
 
                 <Box width = "30%">
                     <Flex>
                     <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">    Model.   </Text>
                     <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1">  Which is best for you? </Text>
                     </Flex>
+
+ {/* ................................... BUTTON FOR IPHONE 14 ............................................. */}
                 <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} 
                 // onClick={()=>setModel("https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1676506021673")}
                  >       
@@ -92,6 +118,8 @@ const Phone14 = () => {
                             </Box>
                      </Flex>  
                 </Button>
+
+ {/* ................................... BUTTON FOR IPHONE 14 PLUS ............................................. */}
                    
                 <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} >       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
@@ -105,6 +133,8 @@ const Phone14 = () => {
                      </Flex>  
                 </Button>
 
+ {/* ................................... COMPRESSION BUTTON ............................................. */}
+
                 <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={onOpen} >       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
                             <Box textAlign="left">
@@ -113,6 +143,8 @@ const Phone14 = () => {
                             </Box>
                      </Flex>  
                 </Button>
+
+ {/* ................................... MODEL ............................................. */}
 
             <Modal isOpen={isOpen} onClose={onClose} size="4xl">
                         <ModalOverlay />
@@ -156,11 +188,10 @@ const Phone14 = () => {
                             Close
                             </Button>
                         </ModalFooter>
-                        </ModalContent>
-
-                  
+                        </ModalContent>        
             </Modal>
 
+ {/* ................................... BUTTON's FOR CHOOSE COLOR ............................................. */}
 
                  <Flex mt = "20">
                     <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">   Finish.  </Text>
@@ -168,17 +199,17 @@ const Phone14 = () => {
                 </Flex>
                 <Text fontSize="2xl" color="black"  mr="2" mt="2"> Color </Text>
                 <Flex>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://e0.pxfuel.com/wallpapers/897/983/desktop-wallpaper-beautiful-fall-color-palette-iphone-pastel-blue.jpg'alt='blue'/></Link>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/750x1334/750x1334-light-pastel-purple-solid-color-background.jpg'alt='pirple'/></Link>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/premium-photo/yellow-cardboard-background-flat-lay-top-view_164357-2985.jpg?w=360'alt='yelllow'/></Link>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://i.pinimg.com/1200x/37/c8/18/37c818a87f0eba853ee08923941e5354.jpg'alt='black'/></Link>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/free-vector/digital-technology-background-with-abstract-wave-border_53876-117508.jpg'alt='white'/></Link>
-                    <Link><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBoiPHdLN5R7yPPwJStPn9PlYEgtpOLKgis-jgd-N7C7rKPDS8RS3_tIkhVM9x4JcNU0&usqp=CAU'alt='yelllow'/></Link>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://e0.pxfuel.com/wallpapers/897/983/desktop-wallpaper-beautiful-fall-color-palette-iphone-pastel-blue.jpg'alt='blue'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/750x1334/750x1334-light-pastel-purple-solid-color-background.jpg'alt='pirple'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/premium-photo/yellow-cardboard-background-flat-lay-top-view_164357-2985.jpg?w=360'alt='yelllow'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://i.pinimg.com/1200x/37/c8/18/37c818a87f0eba853ee08923941e5354.jpg'alt='black'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/free-vector/digital-technology-background-with-abstract-wave-border_53876-117508.jpg'alt='white'/></Button>
+                    <Button><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBoiPHdLN5R7yPPwJStPn9PlYEgtpOLKgis-jgd-N7C7rKPDS8RS3_tIkhVM9x4JcNU0&usqp=CAU'alt='yelllow'/></Button>
                 </Flex>
 
                 <Text fontSize="xl"  mr="0" mt="8" ml = "1">Every iPhone 14 (PRODUCT)RED purchase now contributes directly to the Global Fund to combat COVID‑19. footnote </Text>
 
-
+ {/* ................................... STORAGE BUTTON ............................................. */}
 
                 <Flex mt = "20">
                     <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2"> Storage. </Text>
@@ -215,6 +246,9 @@ const Phone14 = () => {
                 </Box>
             </Flex>
             <Box>
+
+ {/* ................................... OREDR BOX BUTTON (CABLE)............................................. */}
+
             <Center><Text fontSize="6xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">What’s in the Box</Text> </Center>
             <Flex justifyContent="center">
                 <Center>
@@ -242,6 +276,8 @@ const Phone14 = () => {
         </Box>
         
         <Box>
+
+ {/* ................................... COMPRESSION FOR ALL OTHER IPHONE MODEL ............................................. */}
         <Center><Text fontSize="6xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Which iPhone is right for you?</Text> </Center>
         <Flex>
         <Link>

@@ -53,6 +53,7 @@ const Login = () => {
   
     try {
       const response = await axios.post('http://localhost:8080/login', data);
+      console.log(response);
   
       if (response.status === 200) {
         // Login successful
@@ -63,21 +64,9 @@ const Login = () => {
   
         // Display success message
         toast({
-          title: "Success",
-          description: "Login successful",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      } else {
-        // Handle other response statuses if needed
-        console.error('Unexpected response status:', response.status);
-  
-        // Display an error message
-        toast({
-          title: "Error",
-          description: "An error occurred during login. Please try again later.",
-          status: "error",
+          title: 'Success',
+          description: 'Login successful',
+          status: 'success',
           duration: 5000,
           isClosable: true,
         });
@@ -85,14 +74,43 @@ const Login = () => {
     } catch (error) {
       console.error('Error logging in:', error);
   
-      // Display an error message
-      toast({
-        title: "Error",
-        description: "An error occurred during login. Please try again later.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+      if (error.response && error.response.status === 409) {
+        // User not found
+        console.error('User not found. Please sign up first.');
+  
+        // Display an error message
+        toast({
+          title: 'Error',
+          description: 'User not found. Please sign up first.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      } else if (error.response && error.response.status === 422) {
+        // Wrong password
+        console.error('Wrong password. Please try again.');
+  
+        // Display an error message
+        toast({
+          title: 'Error',
+          description: 'Wrong password. Please try again.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      } else {
+        // Other error
+        console.error('An error occurred during login. Please try again later.');
+  
+        // Display an error message
+        toast({
+          title: 'Error',
+          description: 'An error occurred during login. Please try again later.',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
     }
   };
 

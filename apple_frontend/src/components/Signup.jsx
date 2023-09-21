@@ -105,47 +105,86 @@ const Signup = ()=>{
     const handleSubmit = async (e) => {
       e.preventDefault();
     
-      // if (
-      //   data.Fname === "" ||
-      //   data.Lname === "" ||
-      //   data.Country === "" ||
-      //   data.Birth === "" ||
-      //   data.Email === "" ||
-      //   data.Pswd === "" ||
-      //   data.ConfirmPswd === "" ||
-      //   data.NoCode === "" ||
-      //   data.Number === ""
-      // ) {
-      //   // If any required field is empty, show an error message and return early
-      //   toast({
-      //     title: "Error",
-      //     description: "Please fill in all required fields.",
-      //     status: "error",
-      //     duration: 5000,
-      //     isClosable: true,
-      //   });
-      //   return;
-      // }
+      if (
+        data.Fname === "" ||
+        data.Lname === ""
+        //  data.Country === "" || 
+        // data.Birth === "" ||
+        // data.Email === "" ||
+        // data.Pswd === "" ||
+        // data.ConfirmPswd === "" ||
+        // data.NoCode === "" ||
+        // data.Number === "" 
+        // Add checks for other required fields here
+      ) {
+        // If any required field is empty, show an error message and return early
+        toast({
+          title: "Error",
+          description: "Please fill in all required fields.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+        return;
+      }
     
       try {
-        const response = await axios.post('http://localhost:8080/signup', data)
-          .then((res) => {
-            console.log(res.data);
-            // setData(data);
-            navigate("/login");
-            toast({
-              title: 'Account created.',
-              description: "We've created your account for you.",
-              status: 'success',
-              duration: 9000,
-              isClosable: true,
-            });
+        const response = await axios.post('http://localhost:8080/signup', data);
+    
+        if (response.status === 200) {
+          // Account created successfully
+          console.log(response.data);
+          navigate("/login");
+          toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
           });
+        }
       } catch (error) {
         console.error('Error logging in:', error);
+    
+        if (error.response && error.response.status === 409) {
+          // User not found
+          console.error('This email id is already registered. Please use another one.');
+    
+          // Display an error message
+          toast({
+            title: 'Error',
+            description: 'This email id is already registered. Please use another one.',
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+          });
+        } else if (error.response && error.response.status === 500) {
+          // Wrong password
+          console.error('Wrong password. Please try again.');
+    
+          // Display an error message
+          toast({
+            title: 'Error',
+            description: 'Wrong password. Please try again.',
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+          });
+        } else {
+          // Other error
+          console.error('An error occurred during login. Please try again later.');
+    
+          // Display an error message
+          toast({
+            title: 'Error',
+            description: 'An error occurred during login. Please try again later.',
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+          });
+        }
       }
     };
-    
     
     
 
