@@ -11,7 +11,7 @@ import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 
 const Phone14 = () => {
-
+// images for left side slider show .............................................................................................................
     const images = [
         "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1676506021673",
         "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-model-unselect-gallery-1-202209?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660689596976",
@@ -23,18 +23,17 @@ const Phone14 = () => {
     
       const [currentIndex, setCurrentIndex] = useState(0); // dispaly image in slider
       const { isOpen, onOpen, onClose } = useDisclosure();
-    //   const [model , setModel] = useState("");
-      const [color , setColor] = useState(""); // for select phone color wise
-      const [data , setData] = useState([]);    // for fetch data
+      const [color , setColor] = useState(""); //  select phone according to color 
+      const [data , setData] = useState([]);    //  fetch data
       const [buttonClick , setButtonClick] = useState(false); // to choose phn (iphone 14 , iphone 14 plus)
       const [gb , setGb] = useState("");   // select phone according to the storage 
-      const [defaultPictureVisible, setDefaultPictureVisible] = useState(true); 
+      const [defaultPictureVisible, setDefaultPictureVisible] = useState(true); // to desplay final selected image at the bottom
       const [order, setOrder] = useState(
         'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-plus-purple-witb-202209?wid=186&hei=392&fmt=jpeg&qlt=95&.v=1660679147102'
-      );
-    //   const Array 
+      ); // dispaly by default img at the final selected imag place 
 
-    
+
+    // get data from backend ...............................................................................................................................
 
       const fetchData = () => {
         axios.get('http://localhost:8080/iphone14/650bf71d420d5b3eb4a7fa23')
@@ -49,6 +48,8 @@ const Phone14 = () => {
       };
       console.log(data);
     
+
+    
       useEffect(() => {
         fetchData();
         const interval = setInterval(() => {
@@ -62,6 +63,9 @@ const Phone14 = () => {
         };
       }, [currentIndex, images.length]);
 
+
+
+    //   .......................................HANDLE PHONE CLICK BUTTON (IPHONE 14 OR IPHONE14 PLUS)...........................................
       const handlePhone14=()=>{
        setButtonClick((prevButtonClick) => !prevButtonClick)
        setColor(data.iPhone14)
@@ -81,12 +85,12 @@ const Phone14 = () => {
             </Text>
 
 
-  {/* ................................SECOND MAIN BOX....................................... */}
+  {/* .....................................................................SECOND MAIN BOX........................................................................ */}
          <Box mr = "0">
+
+
+ {/* .>............................................................LEFT SIDE IMAGE BOX.............................................................................  */}
             <Flex>
-
-
- {/* .>..................................LEFT SIDE IMAGE BOX.................................  */}
             <Box width="70%" borderRadius="2xl">
                     <Box   height={{ base: '300px', md: '400px', xl: '600px' }}
                         width="90%"
@@ -104,7 +108,7 @@ const Phone14 = () => {
                     />
                     </Box>
 
- {/* .........................................BOX TO DISPLAY ACTUAL BOOKING ............................. */}
+ {/* .........................................BOX TO DISPLAY ACTUAL BOOKING AT LEFT SIDE 2ND BOX............................. */}
 
     <Box width="70%" borderRadius="2xl">
      
@@ -139,9 +143,7 @@ const Phone14 = () => {
                     </Flex>
 
  {/* ................................... BUTTON FOR IPHONE 14 ............................................. */}
-                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} 
-                // onClick={()=>setModel("https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1676506021673")}
-                 >       
+                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}   >       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
                         <Box textAlign="left" onClick={handlePhone14}>
                                 <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">iPhone 14</Text>
@@ -286,6 +288,8 @@ const Phone14 = () => {
             <Center><Text fontSize="6xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">What’s in the Box</Text> </Center>
             <Flex justifyContent="center">
                 <Center>
+
+{/* ...................................................... CONDITIONAL RENDERING TO DISPALY THE FINAL ORDER ........................................... */}
                 <Box width="70%" borderRadius="2xl">
                     {buttonClick ? (
                         // When buttonClick is true, render the Box with the image
@@ -324,12 +328,6 @@ const Phone14 = () => {
                                     )}
                  </Box>
 
-                {/* <Box  boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
-                        <Image src='https://www.91-img.com/gallery_images_uploads/f/4/f496b29bae72d3fb028dea56319a02edc51a5faa.jpg?tr=h-630,c-at_max,q-80' alt='Dan Abramov' 
-                        height= "30rem" width= "70%" />
-                        <Center> <Text fontSize="xl"  mr="0" mt="8" ml = "1">iPhone 14 Plus </Text></Center>
-                       
-                </Box> */}
 
                      <Box  boxSize={{ base: '0px', md: '300px', xl: '450px' }}>
                         <Image src='https://www.mediabridgeproducts.com/wp-content/uploads/30-310-WG_100915-scaled.jpg' alt='Dan Abramov' 
@@ -349,7 +347,7 @@ const Phone14 = () => {
         
         <Box>
 
- {/* ................................... COMPRESSION FOR ALL OTHER IPHONE MODEL ............................................. */}
+ {/* ................................... LINK FOR OTHER IPHONE MODELS ............................................. */}
         <Center><Text fontSize="6xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Which iPhone is right for you?</Text> </Center>
         <Flex>
         <Link>
