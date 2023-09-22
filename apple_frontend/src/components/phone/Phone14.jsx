@@ -80,13 +80,19 @@ const Phone14 = () => {
     return (
 
         // .................................MAIN BOX .......................................
-        <Box textAlign="left" ml = "20" mr = "20">
-            <Heading as="h1" size="2xl" mr="2">
-                Buy iPhone 14
-            </Heading>
-            <Text fontSize="xl" color="gray.500" mr="0" mt="2">
-                From $799 or $33.29/mo. for 24 mo. 
-            </Text>
+        <Box >
+            <Box
+                flexDir={{ base: 'column', md: 'row' }} // Stack in column on small screens, row on medium and larger screens
+                alignItems={{ base: 'center', md: 'flex-start' }} // Center alignment on small screens, left alignment on medium and larger screens
+                >
+                <Heading as="h1" size="2xl" mr={{ base: 0, md: 2 }}>
+                    Buy iPhone 14
+                </Heading>
+                <Text fontSize={{ base: 'xl', md: '2xl' }} color="gray.500" mt={{ base: 2, md: 0 }}>
+                    From $799 or $33.29/mo. for 24 mo.
+                </Text>
+            </Box>
+           
 
 
   {/* .....................................................................SECOND MAIN BOX........................................................................ */}
@@ -94,14 +100,16 @@ const Phone14 = () => {
 
 
  {/* .>............................................................LEFT SIDE IMAGE BOX.............................................................................  */}
-            <Flex>
-            <Box width="70%" borderRadius="2xl">
-                    <Box   height={{ base: '300px', md: '400px', xl: '600px' }}
-                        width="90%"
+
+            <Box>
+            <Flex justify="center">
+            <Box   width={{ base: '90%', md: '70%', xl: '60%' }}  borderRadius="2xl">
+                    <Box    height={{ base: '300px', md: '400px', xl: '600px' }}
+                        width="100%"
                         margin="auto"
-                        mt="50px"
-                        boxShadow="xl" // Add shadow
-                        borderRadius="2xl" // Add curved corners
+                        mt={{ base: '30px', md: '50px', xl: '100px' }} // Adjust margin-top based on screen size
+                        boxShadow="xl"
+                        borderRadius="2xl"
                         >
                     <Image
                         src={images[currentIndex]}
@@ -110,148 +118,169 @@ const Phone14 = () => {
                         height="100%"
                         fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
                     />
-                    </Box>
+             </Box>
 
  {/* .........................................BOX TO DISPLAY ACTUAL BOOKING AT LEFT SIDE 2ND BOX............................. */}
 
-    <Box width="70%" borderRadius="2xl">
-     
-        {
-            buttonClick ?  <Box height={{ base: '300px', md: '400px', xl: '600px' }}
-            width="90%"
-            margin="auto"
-            mt="50px"
-            boxShadow="xl" // Add shadow
-            borderRadius="2xl" >
-        <img src={color} alt="Dan Abramov" width="100%"
-                    height="100%"/>
-                    <Box>
-                  {
-                    gb? <Text>Storage : {gb}</Text> :""
-                  }
-                        
-                    </Box>
-                   
-        </Box> : ""
-        }
-     
-      </Box>
+ <Box width={{ base: '90%', md: '70%', xl: '60%' }} borderRadius="2xl">
+      {buttonClick ? (
+        <Box
+          height={{ base: '300px', md: '400px', xl: '600px' }}
+          width="100%"
+          margin="auto"
+          mt={{ base: '30px', md: '50px', xl: '100px' }}
+          boxShadow="xl"
+          borderRadius="2xl"
+        >
+          <img src={color} alt="Dan Abramov" width="100%" height="100%" />
+          <Box>
+            {gb ? <Text>Storage: {gb}</Text> : ''}
+          </Box>
+        </Box>
+      ) : (
+        ''
+      )}
+    </Box>
 
                 </Box>
  {/* ...................................BOX FOR RIGHT SIDE BUTTONS....................................... */}
 
                 <Box width = "30%">
-                    <Flex>
-                    <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">    Model.   </Text>
-                    <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1">  Which is best for you? </Text>
+
+     <Box> 
+                    
+                <Flex>
+                    <Text fontSize={{ base: '0', md: '2xl', lg: '3xl' }} color="black" fontWeight="bold" mt="2">    Model.   </Text>
+                    <Text fontSize={{ base: '0', md: '2xl', lg: '3xl' }} color="gray.500" fontWeight="bold" mt="2">  Which is best for you? </Text>
                     </Flex>
 
  {/* ................................... BUTTON FOR IPHONE 14 ............................................. */}
-                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}   >       
-                        <Flex justifyContent="space-between" alignItems="center" width="100%">
-                        <Box textAlign="left" onClick={handlePhone14}>
-                                <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">iPhone 14</Text>
-                                <Text fontSize="xl" color="gray.500" fontWeight="bold" mt="3" ml="0" textAlign="left">6.1-inch display</Text>
-                            </Box>
-                            <Box>
-                                <Text fontSize="lg" color="gray.500" textAlign="right">$29.12/mo. for 24 month</Text>
-                            </Box>
-                     </Flex>  
-                </Button>
+ <Button height={{ base: '80px', md: '110px', lg: '140px' }}  width="100%"  mt="10"  ml={{ base: '2', md: '6', lg: '10' }} _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhone14}>
+      <Flex justifyContent="space-between" alignItems="center" width="100%">
+        <Box textAlign="left">
+          <Text fontSize={{ base: 'sm', md: '2xl', lg: '3xl' }} color="black" fontWeight="bold" mt="1"> iPhone 14   </Text>
+          <Text fontSize={{ base: '0', md: 'lg', lg: '2xl' }} color="gray.500" mt="2" fontWeight="bold">  6.1-inch display  </Text>
+        </Box>
+        <Box>
+          <Text fontSize={{ base: '0', md: '0', lg: 'xl' }} color="gray.500" textAlign="right">   $29.12/mo. for 24 mon </Text>
+        </Box>
+      </Flex>
+</Button>
 
  {/* ................................... BUTTON FOR IPHONE 14 PLUS ............................................. */}
                    
-                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} >       
+                <Button  height={{ base: '80px', md: '110px', lg: '140px' }}  width="100%"  mt="10"  ml={{ base: '2', md: '6', lg: '10' }} _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhone14}>       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
-                            <Box textAlign="left" onClick={handlePhone14}>
-                                <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">iPhone 14 Plus</Text>
-                                <Text fontSize="xl" color="gray.500" fontWeight="bold" mt="3" ml="0" textAlign="left">6.7-inch display</Text>
+                            <Box textAlign="left">
+                                <Text fontSize={{ base: 'sm', md: '2xl', lg: '3xl' }} color="black" fontWeight="bold" mt="1">iPhone 14Plus</Text>
+                                <Text fontSize={{ base: '0', md: 'lg', lg: '2xl' }} color="gray.500" mt="2" fontWeight="bold">6.7-inch display</Text>
                             </Box>
                             <Box>
-                                <Text fontSize="lg" color="gray.500" textAlign="right">$33.29/mo. for 24 month</Text>
+                                <Text fontSize={{ base: '0', md: '0', lg: 'xl' }} color="gray.500" textAlign="right">$33.29/mo. for 24 mon</Text>
                             </Box>
                      </Flex>  
                 </Button>
 
  {/* ................................... COMPRESSION BUTTON ............................................. */}
 
-                <Button height="110px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={onOpen} >       
+                <Button height={{ base: '80px', md: '110px', lg: '140px' }}  width="100%"  mt="10"  ml={{ base: '2', md: '6', lg: '10' }} _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={onOpen} >       
                         <Flex justifyContent="space-between" alignItems="center" width="100%">
                             <Box textAlign="left">
-                                <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Need help choosing a model?</Text>
-                                <Text fontSize="xl" color="gray.500" fontWeight="bold" mt="3" ml="0" textAlign="left">Explore the differences in screen size and battery life.</Text>
+                                <Text fontSize={{ base: 'sm', md: '2xl', lg: '3xl' }} color="black" fontWeight="bold" mt="1">Need help choosing a model?</Text>
+                                <Text fontSize={{ base: '0', md: 'sm', lg: 'xl' }}  color="gray.500" mt="2" fontWeight="bold">Explore the differences in screen size</Text>
+                                <Text fontSize={{ base: '0', md: 'sm', lg: 'xl' }} color="gray.500" mt="2" fontWeight="bold">and battery life.</Text>
                             </Box>
                      </Flex>  
                 </Button>
-
+   </Box>
+                
  {/* ................................... MODEL ............................................. */}
+ <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>
+          <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">
+            Which model is right for you?
+          </Text>
+        </ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Flex flexDirection={{ base: 'column', md: 'row' }} alignItems="center" justifyContent="space-around">
+            {/* iPhone 14 */}
+            <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }} mt="0">
+              <Image
+                src='https://i-smart.by/image/catalog/iphone14/2d07bad4078a55691c31650d909ab24f.jpeg'
+                alt='iPhone 14'
+                height={{ base: '19rem', md: '16rem', xl: '25rem' }}
+                width="120%"
+              />
+              <Center>
+                <Text fontSize={{ base: '0', md: '2xl', xl: '3xl' }} color="black" fontWeight="bold" >
+                  iPhone 14
+                </Text>
+              </Center>
+            </Box>
 
-            <Modal isOpen={isOpen} onClose={onClose} size="4xl">
-                        <ModalOverlay />
-                        <ModalContent>
-                        <ModalHeader><Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Which model is right for you?</Text></ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                           <Flex>
-                           <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }} mt = "0">
-                    <Image src='https://i-smart.by/image/catalog/iphone14/2d07bad4078a55691c31650d909ab24f.jpeg' alt='Dan Abramov' 
-                    height= "19rem" width= "100rem" /><Center>
-                        <Text fontSize="2xl" color="black" fontWeight="bold" >iPhone 14</Text>
-                    </Center>
-                    </Box>
-
-                    <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }} mt = "8">
-                    <Image src='https://cdn.dxomark.com/wp-content/uploads/medias/post-132367/Apple-iPhone-14_Plus_FINAL_featured-image-packshot-review.jpg' alt='Dan Abramov' 
-                    height= "16rem" width= "100rem" /><Center>
-                     <Text fontSize="2xl" color="black" fontWeight="bold" mt="1">iPhone 14 Plus</Text>
-                  
-
-                    </Center>
-                 
-                    </Box>
-                           </Flex>
-                        </ModalBody>
-                        <Box mt = "1">
-                        
-                        <Text fontSize="xl" color="black"  mt="3" textAlign="left" ml = "4" mr = "4">
-                           iPhone 14 and iPhone 14 Plus share the same fantastic innovations, like a Pro-level camera, a durable design with Ceramic Shield, 
-                           vital safety features, and our lightning-fast A15 Bionic chip with 5-core GPU.
-                        </Text>
-                        <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml = "4" mr = "4">Here are the key differences:</Text>
-                        <Text fontSize="xl" color="black"  mt="3" textAlign="left" ml = "4" mr = "4">
-                        iPhone 14 has a 6.1-inch display¹ and gets up to 20 hours video playback.
-                       iPhone 14 Plus has a 6.7-inch display¹ and gets up to 26 hours video playback.
-                        </Text>
-                        </Box>
-                        <ModalFooter>
-                            <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
-                            </Button>
-                        </ModalFooter>
-                        </ModalContent>        
-            </Modal>
-
+            {/* iPhone 14 Plus */}
+            <Box boxSize={{ base: '0px', md: '300px', xl: '450px' }} mt="8">
+              <Image
+                src='https://cdn.dxomark.com/wp-content/uploads/medias/post-132367/Apple-iPhone-14_Plus_FINAL_featured-image-packshot-review.jpg'
+                alt='iPhone 14 Plus'
+                height={{ base: '16rem', md: '14rem', xl: '20rem' }}
+                width="100%"
+              />
+              <Center>
+                <Text fontSize={{ base: '0', md: '2xl', xl: '3xl' }}  color="black" fontWeight="bold" mt="10">
+                  iPhone 14 Plus
+                </Text>
+              </Center>
+            </Box>
+          </Flex>
+          <Box mt="1">
+            <Text fontSize={{ base: 'xl', md: '2xl', xl: '3xl' }} color="black" mt="3" textAlign="left" ml="4" mr="4">
+              iPhone 14 and iPhone 14 Plus share the same fantastic innovations, like a Pro-level camera, a durable design with Ceramic Shield,
+              vital safety features, and our lightning-fast A15 Bionic chip with 5-core GPU.
+            </Text>
+            <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} color="black" fontWeight="bold" mt="1" ml="4" mr="4">
+              Here are the key differences:
+            </Text>
+            <Text fontSize={{ base: 'xl', md: '2xl', xl: '3xl' }} color="black" mt="3" textAlign="left" ml="4" mr="4">
+              iPhone 14 has a 6.1-inch display and gets up to 20 hours video playback.
+              iPhone 14 Plus has a 6.7-inch display and gets up to 26 hours video playback.
+            </Text>
+          </Box>
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme='blue' mr={3} onClick={onClose}>
+            Close
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+        
  {/* ................................... BUTTON's FOR CHOOSE COLOR ............................................. */}
-
-                 <Flex mt = "20">
-                    <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">   Finish.  </Text>
-                    <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1">  Pick your favorite. </Text>
-                </Flex>
-                <Text fontSize="2xl" color="black"  mr="2" mt="2"> Color </Text>
-                <Flex>
-                    <Button onClick={()=>setColor(data.iPhone14Blue)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/950x350/950x350-sea-blue-solid-color-background.jpg'alt='blue'/></Button>
-                    <Button onClick={()=>setColor(data.iPhone14Purple)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://wallpaperset.com/w/full/5/e/0/123056.jpg'alt='pirple'/></Button>
-                    <Button onClick={()=>setColor(data.iPhone14Yellow)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/premium-photo/yellow-cardboard-background-flat-lay-top-view_164357-2985.jpg?w=360'alt='yelllow'/></Button>
-                    <Button onClick={()=>setColor(data.iPhone14Black)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQftw-x5JHk9XgBiARCbF0YkfT4iIeLphRTZ-MqT67eAx-5N0wzY9K7VE1YxnPhm3jPog4&usqp=CAU'alt='black'/></Button>
-                    <Button onClick={()=>setColor(data.iPhone14White)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://png.pngtree.com/background/20210714/original/pngtree-off-white-solid-color-background-picture-image_1204491.jpg'alt='white'/></Button>
-                    <Button onClick={()=>setColor(data.iPhone14Red)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBoiPHdLN5R7yPPwJStPn9PlYEgtpOLKgis-jgd-N7C7rKPDS8RS3_tIkhVM9x4JcNU0&usqp=CAU'alt='yelllow'/></Button>
-                </Flex>
+            <Box>
+                <Flex mt = "20">
+                        <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2">   Finish.  </Text>
+                        <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1">  Pick your favorite. </Text>
+                    </Flex>
+                    <Text fontSize="2xl" color="black"  mr="2" mt="2"> Color </Text>
+                    <Flex>
+                        <Button onClick={()=>setColor(data.iPhone14Blue)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://www.solidbackgrounds.com/images/950x350/950x350-sea-blue-solid-color-background.jpg'alt='blue'/></Button>
+                        <Button onClick={()=>setColor(data.iPhone14Purple)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://wallpaperset.com/w/full/5/e/0/123056.jpg'alt='pirple'/></Button>
+                        <Button onClick={()=>setColor(data.iPhone14Yellow)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://img.freepik.com/premium-photo/yellow-cardboard-background-flat-lay-top-view_164357-2985.jpg?w=360'alt='yelllow'/></Button>
+                        <Button onClick={()=>setColor(data.iPhone14Black)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQftw-x5JHk9XgBiARCbF0YkfT4iIeLphRTZ-MqT67eAx-5N0wzY9K7VE1YxnPhm3jPog4&usqp=CAU'alt='black'/></Button>
+                        <Button onClick={()=>setColor(data.iPhone14White)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://png.pngtree.com/background/20210714/original/pngtree-off-white-solid-color-background-picture-image_1204491.jpg'alt='white'/></Button>
+                        <Button onClick={()=>setColor(data.iPhone14Red)}><Image borderRadius='full'boxSize='50px' mr = "8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBoiPHdLN5R7yPPwJStPn9PlYEgtpOLKgis-jgd-N7C7rKPDS8RS3_tIkhVM9x4JcNU0&usqp=CAU'alt='yelllow'/></Button>
+                    </Flex>
 
                 <Text fontSize="xl"  mr="0" mt="8" ml = "1">Every iPhone 14 (PRODUCT)RED purchase now contributes directly to the Global Fund to combat COVID‑19. footnote </Text>
+            </Box>
+              
 
  {/* ................................... STORAGE BUTTON ............................................. */}
-
-                <Flex mt = "20">
+        <Box>
+             <Flex mt = "20">
                     <Text fontSize="4xl" color="black" fontWeight="bold" mr="0" mt="2"> Storage. </Text>
                     <Text fontSize="4xl" color="gray.500" fontWeight="bold" mr="0" mt="2" ml = "1"> How much space do you need?</Text>
                 </Flex>
@@ -282,6 +311,8 @@ const Phone14 = () => {
                             </Box>
                      </Flex>  
                 </Button>
+        </Box>
+               
 
                 </Box>
             </Flex>
@@ -348,6 +379,8 @@ const Phone14 = () => {
                         <Text fontSize="xl"  mr="0" mt="8" ml = "1">We encourage you to re‑use your current USB‑A to Lightning cables, power adapters, and headphones, which are compatible with these iPhone models.
                         But if you need any new Apple power adapters or headphones, they are available for purchase.</Text>
         </Box>
+
+
         
         <Box>
 
@@ -400,6 +433,8 @@ const Phone14 = () => {
             </Box>
            
             </Box>
+ </Box>
+                       
 {/* ............................................... BOX FOR QUS AND ANS .............................................................. */}
             <Box mt= "200">
               
