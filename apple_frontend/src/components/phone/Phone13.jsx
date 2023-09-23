@@ -16,15 +16,15 @@ import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 
-function Phone14() {
+function Phone13() {
 
     const images = [
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1676506021673",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-product-red_AV1_GEO_EMEA_FMT_WHH?wid=1280&hei=492&fmt=p-jpg&qlt=80&.v=1661027418459",
-        "https://www.apple.com/v/iphone-14/i/images/meta/iphone-14_specs__cjecw6jct1py_og.png?202309071830",
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch_AV1?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1671474798353",
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-model-unselect-gallery-2-202303_GEO_EMEA?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1676930655577",
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch_AV2_GEO_US?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1671474739477",
+        "https://images.moneycontrol.com/static-mcnews/2021/01/Apple-iphone-pro-max-770x433.jpg",
+        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-unselect-gallery-1-202207_GEO_US?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894184756",
+        "https://w0.peakpx.com/wallpaper/878/478/HD-wallpaper-iphone-13-pro-max-2021-apple-graphy.jpg",
+        "https://www.91-cdn.com/hub/wp-content/uploads/2021/08/iPhone-13-1.jpeg",
+        "https://www.viralbake.com/wp-content/uploads/2021/05/maxresdefault.jpg",
+        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-unselect-gallery-4-202207?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894186187",
       ];
 
       const [currentIndex, setCurrentIndex] = useState(0); // dispaly image in slider
@@ -41,7 +41,7 @@ function Phone14() {
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphone14/650f16086b9e962cb9b72208')
+        axios.get('http://localhost:8080/iPhone13/650f16086b9e962cb9b72208')
           .then((res) => {
             console.log(res.data);
             setData(res.data);
@@ -68,10 +68,10 @@ function Phone14() {
         };
       }, []); // Empty dependency array means the effect runs only once, like componentDidMount
       
-// .......................................HANDLE PHONE CLICK BUTTON (IPHONE 14 OR IPHONE14 PLUS)...........................................
-      const handlePhone14=()=>{
+// .......................................HANDLE PHONE CLICK BUTTON (IPHONE 14 OR IPHONE13 PLUS)...........................................
+      const handlePhone13=()=>{
        setButtonClick((prevButtonClick) => !prevButtonClick)
-       setColor(data.iPhone14)
+       setColor(data.iPhone13)
        setGb("")
       }
 
@@ -80,11 +80,11 @@ function Phone14() {
     <div>
   <Box  textAlign="left" ml = "10" mr = "10">
   <Heading size="2xl" style={{ lineHeight: '1.2', fontWeight: '600' }}>
-    Buy iPhone 14
+    Buy iPhone 13
   </Heading>
 
   <Text fontSize="l" color="gray.500" mt={{ base: '6', md: '2' }}>
-    Get ₹2000.00-₹67800.00 for your trade-in.Footnote*
+  From $599 or $24.95/month for 24 months
   </Text>
 </Box>
 
@@ -142,7 +142,7 @@ function Phone14() {
 
 {/* .......................................................................................... */}
 <Box ml="10px" mt="8px">
-<Button height="80px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={handlePhone14} >       
+<Button height="80px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={handlePhone13} >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone 14</Text>
@@ -155,7 +155,7 @@ function Phone14() {
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "8px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhone14}   >       
+<Button height="80px" width= "100%" mt = "8px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhone13}   >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone 14 Plus</Text>
@@ -199,7 +199,7 @@ function Phone14() {
           textAlign="center"
         >
           <Image
-            src="https://i-smart.by/image/catalog/iphone14/2d07bad4078a55691c31650d909ab24f.jpeg"
+            src="https://i-smart.by/image/catalog/iphone13/2d07bad4078a55691c31650d909ab24f.jpeg"
             alt="iPhone 14"
             height="auto"
             width="100%"
@@ -273,7 +273,7 @@ function Phone14() {
 </Text>
 
 <Flex flexWrap="wrap" justifyContent="center">
-  <Button onClick={() => setColor(data.iPhone14Blue)}>
+  <Button onClick={() => setColor(data.iPhone13Blue)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -281,7 +281,7 @@ function Phone14() {
       alt="blue"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone14Purple)}>
+  <Button onClick={() => setColor(data.iPhone13Purple)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -289,7 +289,7 @@ function Phone14() {
       alt="purple"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone14Yellow)}>
+  <Button onClick={() => setColor(data.iPhone13Yellow)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -297,7 +297,7 @@ function Phone14() {
       alt="yellow"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone14Black)}>
+  <Button onClick={() => setColor(data.iPhone13Black)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -305,7 +305,7 @@ function Phone14() {
       alt="black"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone14White)}>
+  <Button onClick={() => setColor(data.iPhone13White)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -609,4 +609,6 @@ function Phone14() {
   )
 }
 
-export default Phone14
+export default Phone13
+
+

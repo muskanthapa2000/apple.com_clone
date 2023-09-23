@@ -9,6 +9,8 @@ import PhoneNavbar from './components/PhoneNavbar';
 import Phone14 from './components/phone/Phone14';
 import Phone15 from './components/phone/Phone15';
 import Phone15PreOrder from './components/phone/Phone15PreOrder';
+import Phone144 from './components/phone/Phone14';
+import Phone13 from './components/phone/Phone13';
 
 
 function App() {
@@ -17,11 +19,13 @@ function App() {
      {/* <Signup/> */}
      {/* <Login/> */}
      {/* <Apple/> */}
-    <AppRoutes/>
+    {/* <AppRoutes/> */}
     {/* <PhoneNavbar/> */}
     {/* <Phone14/> */}
     {/* <Phone15/> */}
     {/* <Phone15PreOrder/> */}
+    <Phone13/>
+
     </div>
   );
 }
