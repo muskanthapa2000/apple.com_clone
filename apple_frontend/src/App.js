@@ -11,6 +11,8 @@ import Phone15 from './components/phone/Phone15';
 import Phone15PreOrder from './components/phone/Phone15PreOrder';
 import Phone144 from './components/phone/Phone14';
 import Phone13 from './components/phone/Phone13';
+import Phone11 from './components/phone/Phone11';
+import Phone10 from './components/phone/Phone10';
 
 
 function App() {
@@ -24,8 +26,9 @@ function App() {
     {/* <Phone14/> */}
     {/* <Phone15/> */}
     {/* <Phone15PreOrder/> */}
-    <Phone13/>
-
+    {/* <Phone13/> */}
+   {/* <Phone11/> */}
+   <Phone10/>
     </div>
   );
 }
