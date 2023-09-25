@@ -40,7 +40,7 @@ const Phone15PreOrder =()=>{
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphone15/650f37d61dfa73172b5ecb37')
+        axios.get('http://localhost:8080/iphone15/651136031f51aa9e8531cdbf')
           .then((res) => {
             console.log(res.data);
             setData(res.data);

@@ -41,7 +41,7 @@ function Phone11() {
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphone11/650f50ca31745f2f870d902a')
+        axios.get('http://localhost:8080/iphone11/65112cc8c61cf2164ad7d99f')
           .then((res) => {
             console.log(res.data);
             setData(res.data);

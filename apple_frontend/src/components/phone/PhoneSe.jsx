@@ -1,4 +1,5 @@
 
+
 import React from 'react'
 import { Box, Heading, Text , Image, Flex, Button ,Modal,
     ModalOverlay,
@@ -16,15 +17,15 @@ import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 
-function Phone13() {
+function PhoneSe() {
 
     const images = [
-        "https://images.moneycontrol.com/static-mcnews/2021/01/Apple-iphone-pro-max-770x433.jpg",
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-unselect-gallery-1-202207_GEO_US?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894184756",
-        "https://w0.peakpx.com/wallpaper/878/478/HD-wallpaper-iphone-13-pro-max-2021-apple-graphy.jpg",
-        "https://www.91-cdn.com/hub/wp-content/uploads/2021/08/iPhone-13-1.jpeg",
-        "https://www.viralbake.com/wp-content/uploads/2021/05/maxresdefault.jpg",
-        "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-unselect-gallery-4-202207?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1654894186187",
+        "https://image.hurimg.com/i/hurriyet/75/0x0/5e9732d9d3806c237c62c117.jpg",
+        "https://e0.pxfuel.com/wallpapers/354/205/desktop-wallpaper-iphone-5-phones-and.jpg",
+        "https://images.unsplash.com/photo-1598094670018-abf669538033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXBwbGUlMjBpcGhvbmUlMjBzZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80",
+        "https://cdn.zeebiz.com/sites/default/files/2022/03/22/177986-iphonese3.jpg",
+        "https://i.ytimg.com/vi/QXp8UF3kKQ8/maxresdefault.jpg",
+        "https://c1.wallpaperflare.com/preview/712/911/652/iphone5-iphone-5-product-shoot-product-shot.jpg",
       ];
 
       const [currentIndex, setCurrentIndex] = useState(0); // dispaly image in slider
@@ -35,13 +36,13 @@ function Phone13() {
       const [gb , setGb] = useState("");   // select phone according to the storage 
       const [defaultPictureVisible, setDefaultPictureVisible] = useState(true); // to desplay final selected image at the bottom
       const [order, setOrder] = useState(
-        'https://media.mts.ee/eyJidWNrZXQiOiJtdHMtcHJvZHVjdC1pbWFnZXMiLCJrZXkiOiJjXC9jYlwvY2I2MzcwNjhiMDUxODI2NGIwODIzNzk3YWFjNjViNTAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjYzMCwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19'
+        'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-finish-select-202207-product-red?wid=2560&hei=1440&fmt=jpeg&qlt=95&.v=1655316263304'
       ); 
 
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphone13/651130ebea84511ad5f8aff8')
+        axios.get('http://localhost:8080/iphoneSe/65113e5bdbed306788c96360')
           .then((res) => {
             console.log(res.data);
             setData(res.data);
@@ -68,10 +69,10 @@ function Phone13() {
         };
       }, []); // Empty dependency array means the effect runs only once, like componentDidMount
       
-// .......................................HANDLE PHONE CLICK BUTTON (IPHONE 14 OR IPHONE13 PLUS)...........................................
-      const handlePhone13=()=>{
+// .......................................HANDLE PHONE CLICK BUTTON (IPHONE 14 OR IPHONESE PLUS)...........................................
+      const handlePhoneSe=()=>{
        setButtonClick((prevButtonClick) => !prevButtonClick)
-       setColor(data.iPhone13)
+       setColor(data.iPhoneSe)
        setGb("")
       }
 
@@ -80,11 +81,11 @@ function Phone13() {
     <div>
   <Box  textAlign="left" ml = "10" mr = "10">
   <Heading size="2xl" style={{ lineHeight: '1.2', fontWeight: '600' }}>
-    Buy iPhone 13
+    Buy iPhone SE
   </Heading>
 
   <Text fontSize="l" color="gray.500" mt={{ base: '6', md: '2' }}>
-  From $599 or $24.95/month for 24 months
+    Get ₹2000.00-₹67800.00 for your trade-in.Footnote*
   </Text>
 </Box>
 
@@ -142,27 +143,27 @@ function Phone13() {
 
 {/* .......................................................................................... */}
 <Box ml="10px" mt="8px">
-<Button height="80px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={handlePhone13} >       
+<Button height="80px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={handlePhoneSe} >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
-                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone 14</Text>
-                                <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.1-inch display</Text>
+                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone SE  (1st generation)</Text>
+                                <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">4.7-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$29.12/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$12.12/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "8px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhone13}   >       
+<Button height="80px" width= "100%" mt = "8px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhoneSe}   >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
-                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone 14 Plus</Text>
-                                <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.7-inch display</Text>
+                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left"> iPhone SE (2nd generation)</Text>
+                                <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">4.2-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$23.29/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$15.29/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
@@ -199,14 +200,14 @@ function Phone13() {
           textAlign="center"
         >
           <Image
-            src="https://i-smart.by/image/catalog/iphone13/2d07bad4078a55691c31650d909ab24f.jpeg"
-            alt="iPhone 14"
+            src="https://manofmany.com/wp-content/uploads/2022/09/Apple-iPhone-6.jpg"
+            alt="iPhone se 1st "
             height="auto"
             width="100%"
             maxH="300px"
           />
           <Text fontSize="2xl" color="black" fontWeight="bold" mt="2">
-            iPhone 14
+          iPhone SE  (1st generation)
           </Text>
         </Box>
 
@@ -217,28 +218,28 @@ function Phone13() {
           textAlign="center"
         >
           <Image
-            src="https://cdn.dxomark.com/wp-content/uploads/medias/post-132367/Apple-iPhone-14_Plus_FINAL_featured-image-packshot-review.jpg"
-            alt="iPhone 14 Plus"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA1KoaN9ADEm0fyfY910rkwN1v32r5Wjzvou7Ahgj3LyT3QJ8uU_v7d2qz4f_gONmQRgc&usqp=CAU"
+            alt="iPhone se 2nd"
             height="auto"
             width="100%"
             maxH="300px"
           />
           <Text fontSize="2xl" color="black" fontWeight="bold" mt="2">
-            iPhone 14 Plus
+          iPhone SE  (2nd generation)
           </Text>
         </Box>
       </Flex>
 
       <Box mt="4" p="4">
         <Text fontSize="xl" color="black" mt="3" textAlign="left">
-          iPhone 14 and iPhone 14 Plus share the same fantastic innovations, like a Pro-level camera, a durable design with Ceramic Shield, vital safety features, and our lightning-fast A15 Bionic chip with 5-core GPU.
+          iPhone SE (1st geberation) and iPhone SE (2nd generation) share the same fantastic innovations, like a Pro-level camera, a durable design with Ceramic Shield, vital safety features, and our lightning-fast A15 Bionic chip with 5-core GPU.
         </Text>
         <Text fontSize="2xl" color="black" fontWeight="bold" mt="3" textAlign="left">
           Here are the key differences:
         </Text>
         <Text fontSize="xl" color="black" mt="3" textAlign="left">
-          iPhone 14 has a 6.1-inch display¹ and gets up to 20 hours video playback.
-          iPhone 14 Plus has a 6.7-inch display¹ and gets up to 26 hours video playback.
+        iPhone SE (1st geberation)  has a 4.2-inch display¹ and gets up to 20 hours video playback.
+        iPhone SE (2nd geberation)  Plus has a 4.7-inch display¹ and gets up to 26 hours video playback.
         </Text>
       </Box>
     </ModalBody>
@@ -273,7 +274,7 @@ function Phone13() {
 </Text>
 
 <Flex flexWrap="wrap" justifyContent="center">
-  <Button onClick={() => setColor(data.iPhone13Blue)}>
+  <Button onClick={() => setColor(data.iPhoneSeBlue)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -281,7 +282,7 @@ function Phone13() {
       alt="blue"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone13Purple)}>
+  <Button onClick={() => setColor(data.iPhoneSePurple)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -289,7 +290,7 @@ function Phone13() {
       alt="purple"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone13Yellow)}>
+  <Button onClick={() => setColor(data.iPhoneSeYellow)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -297,7 +298,7 @@ function Phone13() {
       alt="yellow"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone13Black)}>
+  <Button onClick={() => setColor(data.iPhoneSeBlack)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -305,7 +306,7 @@ function Phone13() {
       alt="black"
     />
   </Button>
-  <Button onClick={() => setColor(data.iPhone13White)}>
+  <Button onClick={() => setColor(data.iPhoneSeWhite)}>
     <Image
       borderRadius="full"
       boxSize={['40px', '50px']}
@@ -609,6 +610,4 @@ function Phone13() {
   )
 }
 
-export default Phone13
-
-
+export default PhoneSe
