@@ -15,6 +15,7 @@ import Phone11 from './components/phone/Phone11';
 import Phone10 from './components/phone/Phone10';
 import PhoneSe from './components/phone/PhoneSe';
 import Airpods from './components/Airpods';
+import Watch from './components/Watch';
 
 
 
@@ -33,9 +34,9 @@ function App() {
    {/* <Phone11/> */}
    {/* <Phone10/> */}
    {/* <PhoneSe/> */}
-   <Airpods/>
+   {/* <Airpods/> */}
    
-
+<Watch/>
     </div>
   );
 }

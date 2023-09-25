@@ -54,6 +54,16 @@ const Airpods =()=>{
             <Image src='https://9to5mac.com/wp-content/uploads/sites/6/2022/09/airpods-pro-2-vs-airpods-pro-airpods-3-wrap-up.jpg?quality=82&strip=all&w=1600' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
         </Center>
+        <Center>
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: 'xl' }}
+          >
+           View
+          </Button>
+        </Center>
       </Box>
 
 {/* ................................img box 2 ............................................. */}
@@ -72,6 +82,16 @@ const Airpods =()=>{
             <Image src='https://support.apple.com/library/content/dam/edam/applecare/images/en_US/airpods/replace-airpods-pro-tip.gif' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
         </Center>
+        <Center >
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: 'xl' }}
+          >
+           View
+          </Button>
+        </Center>
       </Box>
 
 
@@ -89,6 +109,16 @@ const Airpods =()=>{
           <Box boxSize={{ base: '50%', md: '187.5%', xl: '250%' }}>
             <Image src='https://images.expertreviews.co.uk/wp-content/uploads/2021/01/apple_airpods_max_review_4.jpeg' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
+        </Center>
+        <Center>
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: 'xl' }}
+          >
+           View
+          </Button>
         </Center>
       </Box>
 
