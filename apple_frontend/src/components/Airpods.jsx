@@ -124,8 +124,9 @@ const Airpods =()=>{
 
 
       {/* ............................................. Airpods Maping........................................... */}
-
+      <Center><Text color="black" fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" mb={20} mt={20}>Which Airpods  is right for you? </Text> </Center>
       <Box style={{ display: 'flex', flexWrap: 'wrap' }}>
+   
   {data.map((e) => (
     <div key={e._id} style={{ flex: '0 0 25%', padding: '16px' }}>
       <Text

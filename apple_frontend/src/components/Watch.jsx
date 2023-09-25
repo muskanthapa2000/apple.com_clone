@@ -1,7 +1,24 @@
 import { Box ,Center,Flex, Image , Text , Button} from "@chakra-ui/react"
+import axios from 'axios';
+import { useState , useEffect} from 'react';
 
 
 const Watch =()=>{
+    const [data , setData] = useState([]);
+
+    useEffect(()=>{
+        fetchData();
+    } , [])
+
+    const fetchData=()=>{
+        axios.get("http://localhost:8080/watch").then((res)=>{
+            setData(res.data)
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+    console.log(data)
     return (
         <Box>
 {/* ...................................image 1 ........................... */}
@@ -119,6 +136,54 @@ const Watch =()=>{
     
       </Flex>
      
+{/* .................................................Which Apple Watch is right for you? .............................................*/}
+
+<Center><Text color="black" fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" mb={20} mt={5}>Which Apple Watch is right for you? </Text> </Center>
+      <Box style={{ display: 'flex', flexWrap: 'wrap' }}>
+   
+  {data.map((e) => (
+    <div key={e._id} style={{ flex: '0 0 calc(33.33% - 16px)', padding: '16px' }}>
+      <Text
+        color="black"
+        fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
+        fontWeight="bold"
+      >
+        {e.name}
+      </Text>
+      <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">
+        {e.title}
+      </Text>
+      <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">
+        ₹{e.price}
+      </Text>
+      <Center>
+      <Box   width="100%"  height={{ base: '100%', md: '150%', xl: '200%' }}>
+      <img
+        src={e.image}
+        alt={e.image}
+        style={{ maxWidth: '100%', height: 'auto' }}
+      />
+      </Box>
+      </Center>
+     
+        <Box>
+        <Center mt="1rem">
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+        </Box>
+         
+      
+    </div>
+  ))}
+</Box>
+
 
 
         </Box>
