@@ -1,11 +1,15 @@
-import {Grid, Heading, Text, Image, Box, Center, Flex, UnorderedList, ListItem } from '@chakra-ui/react';
+import {Grid, Heading, Text, Image, Box, Center, Flex, UnorderedList, ListItem , Button , Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon} from '@chakra-ui/react';
 import axios from 'axios';
 import { useState , useEffect} from 'react';
 
 
 const Airpods =()=>{
 
-    const [data , setData] = useState();
+    const [data , setData] = useState([]);
 
     useEffect(()=>{
         fetchData();
@@ -19,6 +23,9 @@ const Airpods =()=>{
             console.log(err);
         })
     }
+    console.log(data)
+
+
     return (
         <Box>
             {/* ........................................image box 1.......................... */}
@@ -87,14 +94,163 @@ const Airpods =()=>{
 
 
       {/* ............................................. Airpods Maping........................................... */}
-{/* 
-      <Box>
-            {data.map((e, index) => (
-                <div key={index}>
-                {e.name}
-                </div>
-            ))}
-    </Box> */}
+
+      <Box style={{ display: 'flex', flexWrap: 'wrap' }}>
+  {data.map((e) => (
+    <div key={e._id} style={{ flex: '0 0 25%', padding: '16px' }}>
+      <Text
+        color="black"
+        fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
+        fontWeight="bold"
+      >
+        {e.name}
+      </Text>
+      <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">
+        {e.title}
+      </Text>
+      <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">
+        ₹{e.price}
+      </Text>
+      <Center>
+      <Box   width="100%"  height={{ base: '100%', md: '150%', xl: '200%' }}>
+      <img
+        src={e.image}
+        alt={e.image}
+        style={{ maxWidth: '100%', height: 'auto' }}
+      />
+      </Box>
+      </Center>
+     
+        <Box>
+        <Center mt="1rem">
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+        </Box>
+         
+      
+    </div>
+  ))}
+</Box>
+{/* ..........................................QUESTION ANSWERS............................................... */}
+
+<Box mt= "200">
+              
+              <Accordion defaultIndex={[0]} allowMultiple>
+
+                     <AccordionItem>
+                         <h1>
+                         <AccordionButton>
+                             <Box as="span" flex='1' textAlign='left'>
+                             Frequently Asked Questions
+                             </Box>
+                             <AccordionIcon />
+                         </AccordionButton>
+                         </h1>
+                         <AccordionPanel pb={4}>
+                      
+                         <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         What is the warranty period for Apple products, and what does it cover?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     Apple offers a limited one-year warranty for most of its products. 
+                     This warranty covers manufacturing defects and hardware failures. Additionally, Apple provides the option to purchase AppleCare for extended coverage and support.
+                     </AccordionPanel>
+                 </AccordionItem>
+
+                 <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         How can customers initiate a warranty claim or request a repair for a faulty product?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     To initiate a warranty claim or request a repair, visit our "Support" section and follow the prompts to schedule a repair appointment at an Apple Store or an authorized service provider.
+                      You can also start a service request online or contact Apple Support directly.
+                     </AccordionPanel>
+                 </AccordionItem>
+                 <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         Is there an option for customers to purchase extended warranty coverage?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     Yes, customers can purchase AppleCare to extend warranty coverage beyond the standard one-year warranty. AppleCare provides additional support and coverage for up to two or three years, depending on the product.
+                     </AccordionPanel>
+                 </AccordionItem>
+
+                 <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         What is the return policy for Apple products, and what are the steps to return an item?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     Our return policy allows customers to return products within 14 days of purchase. To initiate a return, visit the "Order Status" page, locate your order, and select "Return Items." Follow the instructions to complete the return process.
+                      Note that certain products may have different return policies.
+
+                     </AccordionPanel>
+                 </AccordionItem>
+                 <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         Are there any restocking fees associated with returns or exchanges?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     In most cases, there are no restocking fees for returns or exchanges. However, some products may be subject to a restocking fee if they are not returned in their original condition or packaging. Please review the specific product's return policy for details.
+                     </AccordionPanel>
+                 </AccordionItem>
+
+                 <AccordionItem>
+                     <h2>
+                     <AccordionButton>
+                         <Box as="span" flex='1' textAlign='left'>
+                         Can customers check the availability of Apple products at nearby retail stores?
+                         </Box>
+                         <AccordionIcon />
+                     </AccordionButton>
+                     </h2>
+                     <AccordionPanel pb={4}>
+                     Yes, customers can check product availability at Apple retail stores and authorized resellers using the "Check Availability"
+                      feature on our website. Simply enter your location or choose a store to view product availability.
+                     </AccordionPanel>
+                 </AccordionItem>
+
+                         </AccordionPanel>
+                     </AccordionItem>
+
+
+
+
+               
+                 </Accordion>
+         </Box>
 
            
 

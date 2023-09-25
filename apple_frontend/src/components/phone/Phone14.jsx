@@ -477,7 +477,7 @@ function Phone14() {
 
 
 {/* ........................QUESTION AND ANSWER................... */}
-                       <Box mt= "200">
+        <Box mt= "200">
               
               <Accordion defaultIndex={[0]} allowMultiple>
 
