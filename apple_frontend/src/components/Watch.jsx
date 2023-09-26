@@ -1,6 +1,7 @@
 import { Box ,Center,Flex, Image , Text , Button} from "@chakra-ui/react"
 import axios from 'axios';
 import { useState , useEffect} from 'react';
+import PhoneNavbar from "./Navbar/PhoneNavbar";
 
 
 const Watch =()=>{
@@ -21,6 +22,7 @@ const Watch =()=>{
     console.log(data)
     return (
         <Box>
+          <PhoneNavbar/>
 {/* ...................................image 1 ........................... */}
 
 
@@ -49,9 +51,9 @@ const Watch =()=>{
       </Box>
 
       {/* .............................................image 2....................................... */}
-      <Flex>
+      <Flex flexDirection={{base : 'column' , md: 'row' }}>
          {/* .........................................DESCRIPTION BOX................................................ */}
-        <Box width= "50%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }}  >
+        <Box width= "100%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }}  >
             <Center marginTop="30px">
                     <Flex  align="center">
                     <Box boxSize='5rem' marginRight="1rem">
@@ -81,7 +83,7 @@ const Watch =()=>{
         {/* ....................................IMAGE BOX............................................. */}
         <Box width= "80%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }} >
         <Center>
-                     <Box boxSize={{ base: '0', md: '350px', xl: '900px' }}>
+                     <Box boxSize={{ base: '100%', md: '350px', xl: '900px' }}>
                      <Image src='https://www.apple.com/v/apple-watch-se/k/images/meta/gps__dt6xcl4fwymq_og.png' alt='Dan Abramov' 
                      height= "28rem" width= "120rem" />
                      </Box>
@@ -94,11 +96,11 @@ const Watch =()=>{
       
         {/* ........................................3 image............................................ */}
 
-        <Flex>
+        <Flex flexDirection={{base : 'column' , md: 'row' }}>
          {/* .........................................DESCRIPTION BOX................................................ */}
-        <Box width= "50%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '30rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }}  >
+        <Box width= "100%" bgColor="white" height={{ base: '20rem', md: '40rem', xl: '30rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }}  >
             <Center marginTop="30px">
-            <Flex  align="center">
+            <Flex  align="center" >
                     <Box boxSize='5rem' marginRight="1rem">
                         <Image src='https://i.pinimg.com/1200x/97/10/1e/97101e14164bf3f0364a2da050f9837c.jpg' alt='Dan Abramov' 
                         height= "5rem" width= "5rem" />
@@ -126,8 +128,8 @@ const Watch =()=>{
         {/* ....................................IMAGE BOX............................................. */}
         <Box width= "80%" bgColor="white" height={{ base: '40rem', md: '40rem', xl: '47rem' }}  paddingX={{ base: '2', md: '4', xl: '8' }} >
             <Center>
-                <Box boxSize={{ base: '0', md: '150px', xl: '500px' }}>
-                     <Image src='https://iphoneclass.com.br/wp-content/uploads/2023/01/Apple_watch-series7-availability_stainless-steel_10052021_big_carousel.jpg.slideshow-large_2x.jpg' alt='Dan Abramov' 
+                <Box boxSize={{ base: '100%', md: '150px', xl: '500px' }}>
+                     <Image src='https://media.istockphoto.com/id/498433288/photo/apple-watch-sport-42mm-silver-aluminum-case-with-black-band.jpg?s=612x612&w=0&k=20&c=FCxCLZ2jq3zWlg7zwQEHqsYGUZ_6_yVMhgfE8cqGbNM=' alt='Dan Abramov' 
                      height= "30rem" width= "150rem" />
                 </Box>
             </Center>
@@ -150,7 +152,7 @@ const Watch =()=>{
       >
         {e.name}
       </Text>
-      <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">
+      <Text fontSize={{ base: '0', md: 'lg', xl: 'xl' }} color="gray.500">
         {e.title}
       </Text>
       <Text fontSize={{ base: 'md', md: 'lg', xl: 'xl' }} color="gray.500">

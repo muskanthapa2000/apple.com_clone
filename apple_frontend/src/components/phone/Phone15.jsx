@@ -13,6 +13,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
   AccordionIcon,} from "@chakra-ui/react";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
+import PhoneNavbar from '../Navbar/PhoneNavbar';
 
 const Phone15 = ()=>{
 
@@ -41,6 +42,7 @@ const Phone15 = ()=>{
 
     return (
     <Box>
+        <PhoneNavbar/>
             
             <Box
         width="100%"
@@ -58,10 +60,12 @@ const Phone15 = ()=>{
           </Box>
         </Center>
             
+            <Link to = "/iphone15preorder">
             <Button  width={{ base: '100%', md: 'auto' }}
             colorScheme="blue"
             type="submit"
             fontSize={{ base: 'lg', md: '2xl' }}>Pre-Order</Button>
+            </Link>
 
              <Text color="black" fontSize={{ base: '1xl', md: '2xl', xl: '4xl' }} fontWeight="bold">From $799 or $33.29/mo. for 24 mo</Text>
             <Text fontSize={{ base: '1xl', md: '2xl', xl: '3xl' }} fontWeight="bold" color="gray.500">Available from 22.09</Text> 
@@ -94,13 +98,12 @@ const Phone15 = ()=>{
         <Text color="black" fontSize={{ base: '4xl', md: '6xl', xl: '8xl' }} fontWeight="bold" >Take a closer look. </Text>
 
         <Center mt = "50px">
-                    <Box   height={{ base: '100px', md: '300px', xl: '400px' }}
+                    <Box   height={{ base: '100px', md: '300px', xl: '500px' }}
         width="60%"
         margin="auto"
         boxShadow="xl"
         borderRadius="2xl">
-                    <Image src='https://www.apple.com/v/iphone-15/a/images/overview/closer-look/all_colors__d4w03v51nwcy_large.jpg' alt='phone 15' 
-                    height= "28rem" width= "150rem" />
+                    <Image src='https://www.apple.com/v/iphone-15/a/images/overview/closer-look/all_colors__d4w03v51nwcy_large.jpg' alt='phone 15' />
                     </Box>
                 </Center>
         </Box>

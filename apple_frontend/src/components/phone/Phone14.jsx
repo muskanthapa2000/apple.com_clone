@@ -15,6 +15,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
 import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
+import PhoneNavbar from '../Navbar/PhoneNavbar';
 
 function Phone14() {
 
@@ -77,6 +78,7 @@ function Phone14() {
 
   return (
     <div> 
+      <PhoneNavbar/>
     <div>
   <Box  textAlign="left" ml = "10" mr = "10">
   <Heading size="2xl" style={{ lineHeight: '1.2', fontWeight: '600' }}>
@@ -347,6 +349,9 @@ function Phone14() {
 </Box>
 
 </Flex>
+
+
+
  
  {/* ................What in the box................. */}
 
@@ -370,7 +375,7 @@ function Phone14() {
         borderRadius="2xl"
       >
         <img src={color} alt="Dan Abramov" width="65%" height="65%" />
-        {gb ? <Text>Storage : {gb}</Text> : ""}
+        {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Storage : {gb}</Text> : ""}
       </Box>
     ) : (
       defaultPictureVisible && (
@@ -390,6 +395,8 @@ function Phone14() {
     )}
   </Box>
 
+ 
+
   <Box
     width={{ base: '100%', md: '50%' }}
     borderRadius="2xl"
@@ -407,6 +414,18 @@ function Phone14() {
     </Text>
   </Box>
 </Box>
+<Box>
+    <Center mt="1rem">
+          <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+    </Box>
 
 </Box>
 

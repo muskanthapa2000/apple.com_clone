@@ -16,6 +16,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
 import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
+import PhoneNavbar from '../Navbar/PhoneNavbar';
 
 function PhoneSe() {
 
@@ -78,6 +79,7 @@ function PhoneSe() {
 
   return (
     <div> 
+      <PhoneNavbar/>
     <div>
   <Box  textAlign="left" ml = "10" mr = "10">
   <Heading size="2xl" style={{ lineHeight: '1.2', fontWeight: '600' }}>
@@ -146,7 +148,7 @@ function PhoneSe() {
 <Button height="80px" width= "100%" mt = "10"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={handlePhoneSe} >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
-                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone SE  (1st generation)</Text>
+                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">iPhone SE  (1st gen)</Text>
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">4.7-inch display</Text>
                         </Box>
                          <Box>
@@ -159,7 +161,7 @@ function PhoneSe() {
 <Button height="80px" width= "100%" mt = "8px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} onClick={handlePhoneSe}   >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
-                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left"> iPhone SE (2nd generation)</Text>
+                                <Text fontSize="xl" color="black" fontWeight={600} mt="1" ml="0" textAlign="left"> iPhone SE (2nd gen)</Text>
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">4.2-inch display</Text>
                         </Box>
                          <Box>
@@ -348,7 +350,8 @@ function PhoneSe() {
 </Box>
 
 </Flex>
- 
+
+
  {/* ................What in the box................. */}
 
  <Center><Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">What’s in the Box</Text> </Center>
@@ -371,7 +374,7 @@ function PhoneSe() {
         borderRadius="2xl"
       >
         <img src={color} alt="Dan Abramov" width="65%" height="65%" />
-        {gb ? <Text>Storage : {gb}</Text> : ""}
+        {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Storage : {gb}</Text> : ""}
       </Box>
     ) : (
       defaultPictureVisible && (
@@ -411,6 +414,21 @@ function PhoneSe() {
 
 </Box>
 
+
+<Box>
+    <Center mt="1rem">
+          <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+    </Box>
+ 
+ 
 
 <Center><Text fontSize="xl" color="gray.500" fontWeight={600} mt="1" ml="0" textAlign="left">Our environmental goals.</Text> </Center>
 

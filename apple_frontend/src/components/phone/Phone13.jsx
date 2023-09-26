@@ -15,6 +15,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
 import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
+import PhoneNavbar from '../Navbar/PhoneNavbar';
 
 function Phone13() {
 
@@ -77,6 +78,7 @@ function Phone13() {
 
   return (
     <div> 
+      <PhoneNavbar/>
     <div>
   <Box  textAlign="left" ml = "10" mr = "10">
   <Heading size="2xl" style={{ lineHeight: '1.2', fontWeight: '600' }}>
@@ -347,6 +349,7 @@ function Phone13() {
 </Box>
 
 </Flex>
+
  
  {/* ................What in the box................. */}
 
@@ -370,7 +373,7 @@ function Phone13() {
         borderRadius="2xl"
       >
         <img src={color} alt="Dan Abramov" width="65%" height="65%" />
-        {gb ? <Text>Storage : {gb}</Text> : ""}
+        {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Storage : {gb}</Text> : ""}
       </Box>
     ) : (
       defaultPictureVisible && (
@@ -409,6 +412,20 @@ function Phone13() {
 </Box>
 
 </Box>
+
+
+<Box>
+    <Center mt="1rem">
+          <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+    </Box>
 
 
 <Center><Text fontSize="xl" color="gray.500" fontWeight={600} mt="1" ml="0" textAlign="left">Our environmental goals.</Text> </Center>

@@ -5,6 +5,7 @@ import {Grid, Heading, Text, Image, Box, Center, Flex, UnorderedList, ListItem ,
   AccordionIcon} from '@chakra-ui/react';
 import axios from 'axios';
 import { useState , useEffect} from 'react';
+import PhoneNavbar from './Navbar/PhoneNavbar';
 
 
 const Airpods =()=>{
@@ -28,6 +29,7 @@ const Airpods =()=>{
 
     return (
         <Box>
+          <PhoneNavbar/>
             {/* ........................................image box 1.......................... */}
             <Box
         width="100%"
@@ -54,16 +56,6 @@ const Airpods =()=>{
             <Image src='https://9to5mac.com/wp-content/uploads/sites/6/2022/09/airpods-pro-2-vs-airpods-pro-airpods-3-wrap-up.jpg?quality=82&strip=all&w=1600' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
         </Center>
-        <Center>
-        <Button
-            width={{ base: '100%', md: 'auto' }}
-            colorScheme="blue"
-            type="submit"
-            fontSize={{ base: 'lg', md: 'xl' }}
-          >
-           View
-          </Button>
-        </Center>
       </Box>
 
 {/* ................................img box 2 ............................................. */}
@@ -81,16 +73,6 @@ const Airpods =()=>{
           <Box boxSize={{ base: '93.75%', md: '187.5%', xl: '250%' }}>
             <Image src='https://support.apple.com/library/content/dam/edam/applecare/images/en_US/airpods/replace-airpods-pro-tip.gif' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
-        </Center>
-        <Center >
-        <Button
-            width={{ base: '100%', md: 'auto' }}
-            colorScheme="blue"
-            type="submit"
-            fontSize={{ base: 'lg', md: 'xl' }}
-          >
-           View
-          </Button>
         </Center>
       </Box>
 
@@ -110,25 +92,28 @@ const Airpods =()=>{
             <Image src='https://images.expertreviews.co.uk/wp-content/uploads/2021/01/apple_airpods_max_review_4.jpeg' alt='Dan Abramov' height="28rem" width="120rem" />
           </Box>
         </Center>
-        <Center>
-        <Button
-            width={{ base: '100%', md: 'auto' }}
-            colorScheme="blue"
-            type="submit"
-            fontSize={{ base: 'lg', md: 'xl' }}
-          >
-           View
-          </Button>
-        </Center>
       </Box>
 
 
       {/* ............................................. Airpods Maping........................................... */}
       <Center><Text color="black" fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} fontWeight="bold" mb={20} mt={20}>Which Airpods  is right for you? </Text> </Center>
       <Box style={{ display: 'flex', flexWrap: 'wrap' }}>
+    
    
   {data.map((e) => (
     <div key={e._id} style={{ flex: '0 0 25%', padding: '16px' }}>
+        <Box mb={5}>
+        <Center mt="1rem">
+        <Button
+            width={{ base: '100%', md: 'auto' }}
+            colorScheme="blue"
+            type="submit"
+            fontSize={{ base: 'lg', md: '2xl' }}
+          >
+            Add to Cart
+          </Button>
+        </Center>
+        </Box>
       <Text
         color="black"
         fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
@@ -152,18 +137,7 @@ const Airpods =()=>{
       </Box>
       </Center>
      
-        <Box>
-        <Center mt="1rem">
-        <Button
-            width={{ base: '100%', md: 'auto' }}
-            colorScheme="blue"
-            type="submit"
-            fontSize={{ base: 'lg', md: '2xl' }}
-          >
-            Add to Cart
-          </Button>
-        </Center>
-        </Box>
+       
          
       
     </div>

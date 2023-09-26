@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Apple from './components/Apple';
 import { Routes } from 'react-router-dom';
 import AppRoutes from './routes/Routes';
-import PhoneNavbar from './components/PhoneNavbar';
+import PhoneNavbar from './components/Navbar/PhoneNavbar';
 import Phone14 from './components/phone/Phone14';
 import Phone15 from './components/phone/Phone15';
 import Phone15PreOrder from './components/phone/Phone15PreOrder';
@@ -17,12 +17,15 @@ import PhoneSe from './components/phone/PhoneSe';
 import Airpods from './components/Airpods';
 import Watch from './components/Watch';
 import Payment from './components/Payment';
+import MainNavbar from './components/Navbar/MainNavbar';
 
 
 
 function App() {
   return (
     <div className="App">
+      <MainNavbar/>
+    <AppRoutes/>
      {/* <Signup/> */}
      {/* <Login/> */}
      {/* <Apple/> */}
@@ -38,7 +41,7 @@ function App() {
    {/* <Airpods/> */}
    
 {/* <Watch/> */}
-<Payment/>
+{/* <Payment/> */}
     </div>
   );
 }
