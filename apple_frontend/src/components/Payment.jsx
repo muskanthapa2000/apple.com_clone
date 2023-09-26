@@ -15,7 +15,51 @@ import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 
 const Payment =()=>{
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [data , setData] = useState({
+      number : "",
+      code : "",
+      fname : "",
+      lname : "",
+      address : "",
+      city :"",
+      country : "",
+      pin : ""
+
+    })
+    // useEffect(()=>{
+    //   fetchData();
+    // } , [])
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const formData = {
+        number: data.number,
+        code: data.code,
+        fname: data.fname,
+        lname: data.lname,
+        address: data.address,
+        city: data.city,
+        country: data.country,
+        pin: data.pin,
+      };
+
+      axios
+        .post("http://localhost:8080/addressadd", formData)
+        .then((res) => {
+          console.log(res);
+          setData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    
+
+    const handleChange = (e) => {
+      setData({ ...data, [e.target.name]: e.target.value });
+    }
 
     return (
         <Box>
@@ -66,7 +110,7 @@ const Payment =()=>{
  <Center mb={4}>
     <Box height={{ base: '50px', md: '60px' }} width={{ base: '100%', md: '40%' }} mt={{ base: '8px', md: '16px' }} border="2px black"  _focus={{ boxShadow: '0 0 5px 0 rgba(0, 0, 0, 0.5)' }}>
 
-    <Text fontSize={{ base: 'sm', md: 'md', xl: 'lg' }} color="gray.500" >Your default payment method is also used for purchases made by family members.
+    <Text fontSize={{ base: 'sm', md: 'sm', xl: 'md' }} color="gray.500" >Your default payment method is also used for purchases made by family members.
     Tap  on button Edit , remove or pay Payment </Text> 
     </Box>
 
@@ -76,7 +120,7 @@ const Payment =()=>{
  <Center mt={2}>
     <Box height={{ base: '50px', md: '60px' }} width={{ base: '100%', md: '40%' }} mt={{ base: '8px', md: '16px' }} border="2px black"  _focus={{ boxShadow: '0 0 5px 0 rgba(0, 0, 0, 0.5)' }}>
 
-    <Text fontSize={{ base: 'sm', md: 'md', xl: 'lg' }} color="gray.500" >Eligible business entities including sole proprietors with a valid and active GSTIN (Goods and Services Tax Identification Number) can opt for a business e-invoice during checkout, when purchasing goods and services for business purposes. Please note that the state in which your 
+    <Text fontSize={{ base: 'sm', md: 'sm', xl: 'md' }}color="gray.500" >Eligible business entities including sole proprietors with a valid and active GSTIN (Goods and Services Tax Identification Number) can opt for a business e-invoice during checkout, when purchasing goods and services for business purposes. Please note that the state in which your 
     GSTIN is registered must match your billing address as well as the delivery address. If you added a trade-in to your order, we cannot issue a business invoice.
     You will need to provide a GSTIN (Goods and Services Tax Identification Number) that is valid and active. Please note that the state in which your GSTIN is registered must match your billing address and delivery address.
     The GSTIN (Goods and Services Tax Identification Number) must belong to the individual or business placing the order.
@@ -91,30 +135,175 @@ const Payment =()=>{
 <Modal isOpen={isOpen} onClose={onClose} size="3xl">
   <ModalOverlay />
   <ModalContent>
-    <ModalHeader>
-      {/* <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">
-        Which model is right for you?
-      </Text> */}
-    </ModalHeader>
+    <ModalHeader />
     <ModalCloseButton />
     <ModalBody>
+      <form onSubmit={handleSubmit}>
         <Center>
-        <FormControl style={{ marginRight: { base: '0', md: '1rem' } }}>
-                    <Input type='text' width={{ base: '100%', md: '15rem' }} height="2rem"  required = "true" name = "Account number" placeholder='Enter Account Number' sx={{ '::placeholder': { fontSize: 'md' } }} color='blue.500' />
-        </FormControl>  
+          <Flex flexDirection="column">
+            <FormControl mb={2}>
+              <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                Number
+              </Text>
+              <Input
+                type="text"
+                width="100%"
+                height="2rem"
+                required={true}
+                name="number"
+                placeholder="Enter Account Number"
+                sx={{ '::placeholder': { fontSize: 'md' } }}
+                color="blue.500"
+                onChange={handleChange}
+              />
+            </FormControl>
+
+            <FormControl mb={2}>
+              <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                Code
+              </Text>
+              <Input
+                type="text"
+                width="100%"
+                height="2rem"
+                required={true}
+                name="code"
+                placeholder="Enter Security Code"
+                sx={{ '::placeholder': { fontSize: 'md' } }}
+                color="blue.500"
+                onChange={handleChange}
+              />
+            </FormControl>
+
+            <Flex flexDirection={{ base: 'column', md: 'row' }}>
+              <FormControl mb={{ base: 2, md: 0 }} mr={{ base: 0, md: 2 }}>
+                <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                 First Name
+                </Text>
+                <Input
+                  type="text"
+                  width="100%"
+                  height="2rem"
+                  required={true}
+                  name="name"
+                  placeholder="Name"
+                  sx={{ '::placeholder': { fontSize: 'md' } }}
+                  color="blue.500"
+                  onChange={handleChange}
+                />
+              </FormControl>
+
+              <FormControl mb={{ base: 2, md: 0 }} mr={{ base: 0, md: 2 }}>
+                <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                  Last Name
+                </Text>
+                <Input
+                  type="text"
+                  width="100%"
+                  height="2rem"
+                  required={true}
+                  name="lname"
+                  placeholder="Last Name"
+                  sx={{ '::placeholder': { fontSize: 'md' } }}
+                  color="blue.500"
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </Flex>
+
+            <FormControl mb={2} mt={2}>
+              <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+               Address
+              </Text>
+              <Input
+                type="text"
+                width="100%"
+                height="2rem"
+                required={true}
+                name="address"
+                placeholder="Building no. or Street no."
+                sx={{ '::placeholder': { fontSize: 'md' } }}
+                color="blue.500"
+                onChange={handleChange}
+              />
+            </FormControl>
+
+            <Flex flexDirection={{ base: 'column', md: 'row' }}>
+              <FormControl mb={2} mr={{ base: 0, md: 2 }}>
+                <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                  City
+                </Text>
+                <Input
+                  type="text"
+                  width="100%"
+                  height="2rem"
+                  required={true}
+                  name="city"
+                  placeholder="City"
+                  sx={{ '::placeholder': { fontSize: 'md' } }}
+                  color="blue.500"
+                  onChange={handleChange}
+                />
+              </FormControl>
+
+              <FormControl mb={2} mr={{ base: 0, md: 2 }}>
+                <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                  Country
+                </Text>
+                <Input
+                  type="text"
+                  width="100%"
+                  height="2rem"
+                  required={true}
+                  name="country"
+                  placeholder="Country"
+                  sx={{ '::placeholder': { fontSize: 'md' } }}
+                  color="blue.500"
+                  onChange={handleChange}
+                />
+              </FormControl>
+
+              <FormControl mb={2}>
+                <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                  Pin No
+                </Text>
+                <Input
+                  type="text"
+                  width="100%"
+                  height="2rem"
+                  required={true}
+                  name="pin"
+                  placeholder="Pin No"
+                  sx={{ '::placeholder': { fontSize: 'md' } }}
+                  color="blue.500"
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </Flex>
+
+            <hr />
+
+            <Center mt={4}>
+              <Text fontSize={{ base: 'sm', md: 'sm' }} color="gray.800" textAlign="left">
+                Apple uses industry-standard encryption to protect the confidentiality of your personal information.
+              </Text>
+            </Center>
+          </Flex>
         </Center>
-        <FormControl style={{ marginRight: { base: '0', md: '1rem' } }}>
-                    <Input type='text' width={{ base: '100%', md: '15rem' }} height="2rem"  required = "true" name = "Security Code" placeholder='Enter Security Code' sx={{ '::placeholder': { fontSize: 'md' } }} color='blue.500' />
-        </FormControl>
-  
+
+        <Button colorScheme="blue" mr={3} onClick={onClose} type="submit">
+        Submit
+      </Button>
+      </form>
     </ModalBody>
     <ModalFooter>
-      <Button colorScheme="blue" mr={3} onClick={onClose}>
-        Close
-      </Button>
+    
     </ModalFooter>
+
+    
   </ModalContent>
 </Modal>
+
 
 </Box>
     )
