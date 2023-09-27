@@ -13,6 +13,7 @@ import { Box, Heading, Text , Image, Flex, Button ,Modal,
     import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Payment =()=>{
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,6 +28,7 @@ const Payment =()=>{
       pin : ""
 
     })
+    const navigate = useNavigate();
     // useEffect(()=>{
     //   fetchData();
     // } , [])
@@ -50,6 +52,7 @@ const Payment =()=>{
         .then((res) => {
           console.log(res);
           setData(res.data);
+          // navigate("")
         })
         .catch((err) => {
           console.log(err);
@@ -155,6 +158,8 @@ const Payment =()=>{
                 sx={{ '::placeholder': { fontSize: 'md' } }}
                 color="blue.500"
                 onChange={handleChange}
+                minLength={12}
+                maxLength={12}
               />
             </FormControl>
 
@@ -172,6 +177,8 @@ const Payment =()=>{
                 sx={{ '::placeholder': { fontSize: 'md' } }}
                 color="blue.500"
                 onChange={handleChange}
+                minLength={4}
+                maxLength={4}
               />
             </FormControl>
 
@@ -277,6 +284,8 @@ const Payment =()=>{
                   sx={{ '::placeholder': { fontSize: 'md' } }}
                   color="blue.500"
                   onChange={handleChange}
+                  minLength={6}
+                  maxLength={6}
                 />
               </FormControl>
             </Flex>
@@ -290,10 +299,11 @@ const Payment =()=>{
             </Center>
           </Flex>
         </Center>
-
-        <Button colorScheme="blue" mr={3} onClick={onClose} type="submit">
+        <Center mt={4}>
+        <Button colorScheme="blue" mr={3} onClick={()=>{navigate("/success")}} type="submit">
         Submit
       </Button>
+      </Center>
       </form>
     </ModalBody>
     <ModalFooter>

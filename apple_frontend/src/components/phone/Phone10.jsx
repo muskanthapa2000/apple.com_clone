@@ -1,3 +1,4 @@
+// http://localhost:8080/iphone10/65112ee5c7d5dd6a07381ec7
 
 import React from 'react'
 import { Box, Heading, Text , Image, Flex, Button ,Modal,
@@ -16,7 +17,8 @@ import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 import PhoneNavbar from '../Navbar/PhoneNavbar';
-
+import { useContext } from 'react';
+import { AuthContext } from '../ContextApi/Context';
 
 function Phone10() {
   
@@ -40,6 +42,28 @@ function Phone10() {
       const [order, setOrder] = useState(
         'https://www.thefonestore.ca/cdn/shop/products/iphone-x_d8d0c25d-1766-4cce-a179-6761d4c9a508.jpg?v=1670892292'
       ); 
+     const [price, setPrice] = useState(37299);
+
+  const {CartData,SetCartData} = useContext(AuthContext)
+
+  // .....................add item into cart .........................
+
+  const addToCart = () => {
+    // Create a new item object to add to the cart
+    const newItem = {
+      image : color,
+      name: data.iPhone10Title,
+      quantity: 1,
+      price: price,
+    };
+  
+    console.log("Adding item to cart:", newItem);
+  
+    // Update the cartData array with the new item
+    SetCartData((prevCartData) => [...prevCartData, newItem]);
+  };
+  
+
 
        // get data from backend ...............................................................................................................................
 
@@ -78,6 +102,29 @@ function Phone10() {
        setGb("")
       }
 
+
+// ......................add item into Cartpage................. 
+
+const storeData=(el)=>{
+  if(CartData.length!==0){
+    let condi=CartData.filter((ele)=>{
+      return el.title===ele.title
+  })
+  console.log(condi)
+  if(condi.length>=1){
+    alert("item is already in cart")
+  }
+  else{
+    SetCartData([...CartData,el])
+  }
+
+  }else{
+    SetCartData([...CartData,el])
+  } 
+}
+
+
+
   return (
     <div> 
       <PhoneNavbar/>
@@ -88,7 +135,7 @@ function Phone10() {
   </Heading>
 
   <Text fontSize="l" color="gray.500" mt={{ base: '6', md: '2' }}>
-  From $299 or $24.95/month for 24 months
+  From ₹37999 or ₹2040/month for 24 months
   </Text>
 </Box>
 
@@ -153,7 +200,7 @@ function Phone10() {
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.1-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$29.12/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">₹2465/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
@@ -166,7 +213,7 @@ function Phone10() {
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.7-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$18/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">₹1530/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
@@ -320,29 +367,38 @@ function Phone10() {
 </Flex>
 
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)"}} onClick={()=>setGb("128GB")}   >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)"}} onClick={()=>{setGb("128GB"); setPrice(37999)}}   >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">128GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $799 or $33.29/mo.per for 24 mo. </Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹37999 or ₹1568/mo.per for 24 mo. </Text>
                         </Box>
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={()=>setGb("256GB")}  >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  
+ onClick={() => {
+  setGb("256GB");
+  setPrice(40999);
+}}
+>       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">256GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $899 or $37.45/mo.per for 24 mo.</Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹40999 or ₹1634/mo.per for 24 mo.</Text>
                         </Box>
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={()=>setGb("512GB")} >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }} 
+ onClick={()=>{
+ setGb("512GB");
+ setPrice(70599)}}
+  >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">512GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $1099 or $45.79/mo.per  for 24 mo.</Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹70599 or ₹2943/mo.per  for 24 mo.</Text>
                         </Box>
                      </Flex>  
 </Button>
@@ -378,6 +434,7 @@ function Phone10() {
       >
         <img src={color} alt="Dan Abramov" width="65%" height="65%" />
         {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Storage : {gb}</Text> : ""}
+        {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Price : ₹{price}</Text> : ""}
       </Box>
     ) : (
       defaultPictureVisible && (
@@ -425,6 +482,7 @@ function Phone10() {
             colorScheme="blue"
             type="submit"
             fontSize={{ base: 'lg', md: '2xl' }}
+            onClick={addToCart}
           >
             Add to Cart
           </Button>
@@ -631,5 +689,3 @@ function Phone10() {
 }
 
 export default Phone10;
-
-

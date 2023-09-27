@@ -14,6 +14,7 @@ import PhoneSe from '../components/phone/PhoneSe';
 import Airpods from '../components/Airpods';
 import Watch from '../components/Watch';
 import Payment from '../components/Payment';
+import Success from '../components/Success';
 
 
 const AppRoutes = () => {
@@ -36,6 +37,7 @@ const AppRoutes = () => {
         <Route path= "/airpods" element = {<Airpods/>}></Route>
         <Route path= "/watch" element = {<Watch/>}></Route>
         <Route path= "/payment" element = {<Payment/>}></Route>
+        <Route path= "/success" element = {<Success/>}></Route>
         
       </Routes>
     </div>

@@ -434,59 +434,57 @@ const Phone15PreOrder =()=>{
     
     
     {/* ................................... LINK FOR OTHER IPHONE MODELS ............................................. */}
-        <Box  display={{ base: 'none', md: 'block' }}>
-    
-      
-            <Center><Text fontSize="2xl" color="black" fontWeight="bold" mt="10" ml="0"  textAlign="left">Which iPhone is right for you?</Text> </Center>
-    
-    {/* .....................four phone picture ........... */}
-    <Center mt="10">
-    
-    <Flex >
-            <Link>
-                    <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
-                            <Image src='https://img.freepik.com/premium-photo/smart-phone-isolated-white-screen-with-empty-background-mockup_752648-43.jpg' alt='iPhone 15' 
-                            height= "200px" width= "100%" />
-                            <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 15</Text></Center>
-                            <Center> <Text fontSize="xl" >The ultimate iPhone.</Text></Center>
-                           
-                         </Box>
-                    </Link>
-    
-                    <Link>
-                    <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
-                            <Image src='https://cdn.dxomark.com/wp-content/uploads/medias/post-125428/Apple-iPhone-14-Pro-Max_FINAL_featured-image-packshot-review-1.jpg' alt='iPhone 14' 
-                           height= "200px" width= "100%" />
-                            <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 14</Text></Center>
-                            <Center> <Text fontSize="xl" >As amazing as ever.</Text></Center>
-                           
-                         </Box>
-                    </Link>
-    
-                    <Link>
-                    <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
-                            <Image src='https://media.ldlc.com/r1600/ld/products/00/05/93/86/LD0005938604_1.jpg' alt='Dan Abramov' 
-                            height= "200px" width= "80%" />
-                           <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 13</Text></Center>
-                            <Center> <Text fontSize="xl">A total powerhouse.</Text></Center>
-                           
-                         </Box>
-                    </Link>
-    
-                    <Link>
-                    <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
-                            <Image src='https://www.refurbished.store/cache/images/iphone-xs-zilver-multiapple_1_600x600_BGresize_16777215-tj.png' alt='Dan Abramov' 
-                           height= "200px" width= "100%" />
-                                  <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone X</Text></Center>
-                            <Center> <Text fontSize="xl">Serious power. Serious value.</Text></Center>
-                           
-                         </Box>
-                    </Link>
-            </Flex>
-                           </Center>
-    
-                           </Box>
-    
+    <Box  display={{ base: 'none', md: 'block' }}>
+
+  
+<Center><Text fontSize="2xl" color="black" fontWeight="bold" mt="10" ml="0"  textAlign="left">Which iPhone is right for you?</Text> </Center>
+
+{/* .....................four phone picture ........... */}
+<Center mt="10">
+
+<Flex >
+<Link to = "/iphone15preorder">
+        <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
+                <Image src='https://img.freepik.com/premium-photo/smart-phone-isolated-white-screen-with-empty-background-mockup_752648-43.jpg' alt='iPhone 15' 
+                height= "200px" width= "100%" />
+                <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 15</Text></Center>
+                <Center> <Text fontSize="xl" >The ultimate iPhone.</Text></Center>
+               
+             </Box>
+  </Link>
+
+       <Link to = "/iphone14">
+        <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
+                <Image src='https://cdn.dxomark.com/wp-content/uploads/medias/post-125428/Apple-iPhone-14-Pro-Max_FINAL_featured-image-packshot-review-1.jpg' alt='iPhone 14' 
+               height= "200px" width= "100%" />
+                <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 14</Text></Center>
+                <Center> <Text fontSize="xl" >As amazing as ever.</Text></Center>
+               
+             </Box>
+        </Link>
+
+        <Link to = "/iphone13">
+        <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
+                <Image src='https://media.ldlc.com/r1600/ld/products/00/05/93/86/LD0005938604_1.jpg' alt='Dan Abramov' 
+                height= "200px" width= "80%" />
+               <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone 13</Text></Center>
+                <Center> <Text fontSize="xl">A total powerhouse.</Text></Center>
+               
+             </Box>
+        </Link>
+
+        <Link to = "/iphone10">
+        <Box  boxSize={{ base: '200px', md: '200px', xl: '200px' }}>
+                <Image src='https://www.refurbished.store/cache/images/iphone-xs-zilver-multiapple_1_600x600_BGresize_16777215-tj.png' alt='Dan Abramov' 
+               height= "200px" width= "100%" />
+                      <Center> <Text fontSize="xl" fontWeight="bold" mr="0" mt="8" ml = "1">iPhone X</Text></Center>
+                <Center> <Text fontSize="xl">Serious power. Serious value.</Text></Center>
+               
+             </Box>
+        </Link>
+</Flex>
+</Center>
+</Box>
     
     {/* ........................QUESTION AND ANSWER................... */}
                            <Box mt= "200">

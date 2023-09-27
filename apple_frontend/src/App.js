@@ -18,6 +18,8 @@ import Airpods from './components/Airpods';
 import Watch from './components/Watch';
 import Payment from './components/Payment';
 import MainNavbar from './components/Navbar/MainNavbar';
+import Success from './components/Success';
+import Footer from './components/Footer';
 
 
 
@@ -26,6 +28,7 @@ function App() {
     <div className="App">
       <MainNavbar/>
     <AppRoutes/>
+    <Footer/>
      {/* <Signup/> */}
      {/* <Login/> */}
      {/* <Apple/> */}
@@ -42,6 +45,7 @@ function App() {
    
 {/* <Watch/> */}
 {/* <Payment/> */}
+{/* <Success/> */}
     </div>
   );
 }
