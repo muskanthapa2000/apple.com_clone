@@ -1,18 +1,30 @@
 import React from 'react';
-import { Box, Flex, Text, Link, Stack, IconButton } from '@chakra-ui/react';
-import { FaFacebook, FaLinkedin, FaYoutube, FaTwitter, FaCcVisa, FaCcMastercard, FaCcPaypal, FaPhone } from 'react-icons/fa';
+import { Box, Flex, Text, Link, Stack, IconButton, useBreakpointValue } from '@chakra-ui/react';
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaYoutube,
+  FaTwitter,
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcPaypal,
+  FaPhone,
+} from 'react-icons/fa';
 
 const Footer = () => {
+  const columnDirection = useBreakpointValue({ base: 'column', md: 'row' });
+
   return (
     <Box bg="gray" py={8} color="white">
       <Flex
-        direction={{ base: 'column', md: 'row' }}
+        direction={columnDirection}
         maxW="1200px"
         mx="auto"
         justify="space-between"
         px={4}
+        flexWrap="wrap"
       >
-        <Stack direction={{ base: 'column', md: 'row' }} spacing={4} mb={{ base: 4, md: 0 }}>
+        <Stack direction="row" spacing={4} mb={{ base: 4, md: 0 }}>
           {/* Footer Column 1 */}
           <Flex alignItems="center">
             <IconButton

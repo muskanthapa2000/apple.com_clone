@@ -11,7 +11,7 @@ const Success = () => {
   };
 
   return (
-    <Box textAlign="center" mb="300px">
+    <Box textAlign="center" mb="200px">
         <Center>
         <Image
         src="https://us.v-cdn.net/6033805/uploads/NFFSMTHMR4G8/quaintlikelyflyingfish-max-1mb.gif"
