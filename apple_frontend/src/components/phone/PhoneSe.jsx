@@ -66,7 +66,7 @@ function PhoneSe() {
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphoneSe/65113e5bdbed306788c96360')
+        axios.get('https://lovely-bull-spacesuit.cyclic.cloud/iphoneSe/65113e5bdbed306788c96360')
           .then((res) => {
             console.log(res.data);
             setData(res.data);

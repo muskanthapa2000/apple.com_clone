@@ -68,7 +68,7 @@ function Phone10() {
        // get data from backend ...............................................................................................................................
 
        const fetchData = () => {
-        axios.get('http://localhost:8080/iphone10/65112ee5c7d5dd6a07381ec7')
+        axios.get('https://lovely-bull-spacesuit.cyclic.cloud/iphone10/65112ee5c7d5dd6a07381ec7')
           .then((res) => {
             console.log(res.data);
             setData(res.data);

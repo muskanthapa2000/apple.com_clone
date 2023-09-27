@@ -48,11 +48,11 @@ const Payment =()=>{
       };
 
       axios
-        .post("http://localhost:8080/addressadd", formData)
+        .post("https://lovely-bull-spacesuit.cyclic.cloud/addressadd", formData)
         .then((res) => {
           console.log(res);
           setData(res.data);
-          // navigate("")
+          navigate("/success")
         })
         .catch((err) => {
           console.log(err);
@@ -65,7 +65,7 @@ const Payment =()=>{
     }
 
     return (
-   <Box >
+   <Box mb="300px">
                <Text fontSize={{ base: '2xl', md: '3xl', xl: '4xl' }} color="gray.500" fontWeight="bold">Payment Method</Text> 
 
 {/* ........................................ BOX FOR PAYMENT METHOD............................................... */}
@@ -152,7 +152,7 @@ const Payment =()=>{
                 type="text"
                 width="100%"
                 height="2rem"
-                required={true}
+                required = "true"
                 name="number"
                 placeholder="Enter Account Number"
                 sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -171,7 +171,7 @@ const Payment =()=>{
                 type="text"
                 width="100%"
                 height="2rem"
-                required={true}
+                required = "true"
                 name="code"
                 placeholder="Enter Security Code"
                 sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -191,7 +191,7 @@ const Payment =()=>{
                   type="text"
                   width="100%"
                   height="2rem"
-                  required={true}
+                  required = "true"
                   name="name"
                   placeholder="Name"
                   sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -208,7 +208,7 @@ const Payment =()=>{
                   type="text"
                   width="100%"
                   height="2rem"
-                  required={true}
+                  required = "true"
                   name="lname"
                   placeholder="Last Name"
                   sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -226,7 +226,7 @@ const Payment =()=>{
                 type="text"
                 width="100%"
                 height="2rem"
-                required={true}
+                required = "true"
                 name="address"
                 placeholder="Building no. or Street no."
                 sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -244,7 +244,7 @@ const Payment =()=>{
                   type="text"
                   width="100%"
                   height="2rem"
-                  required={true}
+                  required = "true"
                   name="city"
                   placeholder="City"
                   sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -261,7 +261,7 @@ const Payment =()=>{
                   type="text"
                   width="100%"
                   height="2rem"
-                  required={true}
+                  required = "true"
                   name="country"
                   placeholder="Country"
                   sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -278,7 +278,7 @@ const Payment =()=>{
                   type="text"
                   width="100%"
                   height="2rem"
-                  required={true}
+                  required = "true"
                   name="pin"
                   placeholder="Pin No"
                   sx={{ '::placeholder': { fontSize: 'md' } }}
@@ -300,7 +300,7 @@ const Payment =()=>{
           </Flex>
         </Center>
         <Center mt={4}>
-        <Button colorScheme="blue" mr={3} onClick={()=>{navigate("/success")}} type="submit">
+        <Button colorScheme="blue" mr={3}  type="submit">
         Submit
       </Button>
       </Center>

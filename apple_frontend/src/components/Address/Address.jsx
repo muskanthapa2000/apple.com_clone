@@ -49,6 +49,7 @@ const Address = () => {
         localStorage.setItem('Address', JSON.stringify(formData));
         navigate("/payment")
         toast({
+          position : "top",
           title: 'Success',
           description: 'Address saved successfully!',
           status: 'success',
@@ -58,6 +59,7 @@ const Address = () => {
       }
      catch (error) {
       toast({
+        position : "top",
         title: 'Error',
         description: 'An error occurred while saving the address.',
         status: 'error',

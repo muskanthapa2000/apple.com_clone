@@ -35,7 +35,7 @@ const Signup = ()=>{
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post('http://localhost:8080/signup', data);
+        const response = await axios.post('https://lovely-bull-spacesuit.cyclic.cloud/signup', data);
     
         if (response.status === 200) {
           // Account created successfully
@@ -59,6 +59,7 @@ const Signup = ()=>{
     
           // Display an error message
           toast({
+            position : "top",
             title: 'Error',
             description: 'This email id is already registered. Please use another one.',
             status: 'error',
@@ -71,6 +72,7 @@ const Signup = ()=>{
     
           // Display an error message
           toast({
+            position : "top",
             title: 'Error',
             description: 'Wrong password. Please try again.',
             status: 'error',
@@ -83,6 +85,7 @@ const Signup = ()=>{
     
           // Display an error message
           toast({
+            position : "top",
             title: 'Error',
             description: 'An error occurred during login. Please try again later.',
             status: 'error',
@@ -98,13 +101,13 @@ const Signup = ()=>{
 
     return (
        
-    <div>
+    <div style = {{marginBottom : "15px"}}>
         <form onSubmit={handleSubmit}>
 
        
 <hr></hr>
 
-       <Box ml = "20px" mr = "20px">
+       <Box ml = "20px" mr = "20px" >
             
             <Heading as='h1' size={{ base: 'xl', md: '2xl', lg: '3xl' }}>Create Your Apple ID </Heading>
             <br></br>
