@@ -42,6 +42,7 @@ const Signup = ()=>{
           console.log(response.data);
           navigate("/login");
           toast({
+            position : "top",
             title: 'Account created.',
             description: "We've created your account for you.",
             status: 'success',

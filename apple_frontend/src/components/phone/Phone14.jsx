@@ -16,6 +16,8 @@ import axios from "axios";
 import { useEffect , useState } from 'react';
 import {Link} from 'react-router-dom'
 import PhoneNavbar from '../Navbar/PhoneNavbar';
+import { useContext } from 'react';
+import { AuthContext } from '../ContextApi/Context';
 
 function Phone14() {
 
@@ -38,6 +40,27 @@ function Phone14() {
       const [order, setOrder] = useState(
         'https://media.mts.ee/eyJidWNrZXQiOiJtdHMtcHJvZHVjdC1pbWFnZXMiLCJrZXkiOiJjXC9jYlwvY2I2MzcwNjhiMDUxODI2NGIwODIzNzk3YWFjNjViNTAuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMjAwLCJoZWlnaHQiOjYzMCwiZml0IjoiY29udGFpbiIsImJhY2tncm91bmQiOnsiciI6MjU1LCJnIjoyNTUsImIiOjI1NSwiYWxwaGEiOjF9fX19'
       ); 
+      const [price, setPrice] = useState(37299);
+
+      const {CartData,SetCartData} = useContext(AuthContext)
+
+        // .....................add item into cart .........................
+
+  const addToCart = () => {
+    // Create a new item object to add to the cart
+    const newItem = {
+      image : color,
+      name: data.iPhone14Title,
+      quantity: 1,
+      price: price,
+    };
+  
+    console.log("Adding item to cart:", newItem);
+  
+    // Update the cartData array with the new item
+    SetCartData((prevCartData) => [...prevCartData, newItem]);
+  };
+
 
        // get data from backend ...............................................................................................................................
 
@@ -75,6 +98,27 @@ function Phone14() {
        setColor(data.iPhone14)
        setGb("")
       }
+
+      // ......................add item into Cartpage................. 
+
+const storeData=(el)=>{
+  if(CartData.length!==0){
+    let condi=CartData.filter((ele)=>{
+      return el.title===ele.title
+  })
+  console.log(condi)
+  if(condi.length>=1){
+    alert("item is already in cart")
+  }
+  else{
+    SetCartData([...CartData,el])
+  }
+
+  }else{
+    SetCartData([...CartData,el])
+  } 
+}
+
 
   return (
     <div> 
@@ -151,7 +195,7 @@ function Phone14() {
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.1-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$29.12/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">₹2465/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
@@ -164,7 +208,7 @@ function Phone14() {
                                 <Text fontSize="l" color="gray.600" fontWeight={400} mt="1" ml="0" textAlign="left">6.7-inch display</Text>
                         </Box>
                          <Box>
-                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">$23.29/mo. for 24 months</Text>
+                         <Text fontSize="sm" color="gray.800" fontWeight={400} textAlign="right" mt="-5">₹1955/mo. for 24 months</Text>
 
                          </Box>
                      </Flex>  
@@ -318,29 +362,34 @@ function Phone14() {
 </Flex>
 
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)"}} onClick={()=>setGb("128GB")}   >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)"}} onClick={()=>{setGb("128GB"); setPrice(37999)}}   >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">128GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $799 or $33.29/mo.per for 24 mo. </Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹799 or ₹2546/mo.per for 24 mo. </Text>
                         </Box>
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={()=>setGb("256GB")}  >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}   onClick={() => {
+  setGb("256GB");
+  setPrice(40999);
+}} >       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">256GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $899 or $37.45/mo.per for 24 mo.</Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹76415 or ₹3145/mo.per for 24 mo.</Text>
                         </Box>
                      </Flex>  
 </Button>
 
-<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}  onClick={()=>setGb("512GB")} >       
+<Button height="80px" width= "100%" mt = "20px"  border="2px  black"  _focus={{ boxShadow: "0 0 5px 0 rgba(0, 0, 0, 0.5)" }}   onClick={()=>{
+ setGb("512GB");
+ setPrice(70599)}}>       
                         <Flex justifyContent="space-around" alignItems="center" width="100%">
                         <Box textAlign="left" >
                                 <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">512GB</Text>
-                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From $1099 or $45.79/mo.per  for 24 mo.</Text>
+                                <Text fontSize="l" color="black" fontWeight={600} mt="1" ml="0" textAlign="left">From ₹93415 or ₹3825/mo.per  for 24 mo.</Text>
                         </Box>
                      </Flex>  
 </Button>
@@ -376,6 +425,7 @@ function Phone14() {
       >
         <img src={color} alt="Dan Abramov" width="65%" height="65%" />
         {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Storage : {gb}</Text> : ""}
+        {gb ? <Text fontSize="2xl" color="black" fontWeight="bold" mt="1" ml="0" textAlign="left">Price : ₹{price}</Text> : ""}
       </Box>
     ) : (
       defaultPictureVisible && (
@@ -421,6 +471,7 @@ function Phone14() {
             colorScheme="blue"
             type="submit"
             fontSize={{ base: 'lg', md: '2xl' }}
+            onClick={addToCart}
           >
             Add to Cart
           </Button>
@@ -571,7 +622,7 @@ function Phone14() {
                      </h2>
                      <AccordionPanel pb={4}>
                      The Affordable Connectivity Program (ACP) gives a discount on your household's monthly broadband internet service, if you are eligible. Participating broadband providers will apply this discount to your broadband plan.
-                     A discount of up to $30/month for internet service (or a discount up to $75/month for households on qualifying Tribal lands); and. A one-time discount of up to $100 for a laptop, desktop computer, or tablet purchased through a participating provider.
+                     A discount of up to ₹30000/month for internet service (or a discount up to ₹7005/month for households on qualifying Tribal lands); and. A one-time discount of up to ₹10000 for a laptop, desktop computer, or tablet purchased through a participating provider.
                      The Affordable Connectivity Program is limited to one monthly service discount and one device discount per household. Who Is Eligible? Check out fcc.gov/ACP for a Consumer FAQ and other program resources.
                      Connectivity Service means the service that allows Dedicated Equipment to connect to the internet.The Affordable Connectivity Program is an FCC benefit program that helps ensure that households can afford the broadband they need for work, school, healthcare and more.
 
