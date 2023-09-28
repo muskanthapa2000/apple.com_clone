@@ -101,7 +101,7 @@ const Payment =()=>{
   </Box>
   <Box>
     <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.800" fontWeight="bold" textAlign="right" mr={{ base: -4, md: -20 }}>
-      Apple Account
+      Credit Account
     </Text>
     <Text fontSize={{ base: 'sm', md: 'md' }} color="blue" fontWeight="bold" textAlign="right" mr={{ base: -4, md: -20 }}>
       Details
